@@ -15,30 +15,38 @@ import java.util.List;
 import static com.codeup.adlister.dao.DaoFactory.getAdsDao;
 
 
-@WebServlet(urlPatterns = "/ads/searchResult")
+@WebServlet(urlPatterns = "/results")
 public class AdSearchServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    if(request.getParameter("search")== null){
-      response.sendRedirect("/ads");
-    } else {
-      request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
-    }
+request.getRequestDispatcher("/WEB-INF/ads/searchResults.jsp").forward(request,response);
   } //end of doGet
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    List<Ad> adsList = getAdsDao().all();
+    List<Ad> newList = new ArrayList<>();
+    request.setAttribute("ads", newList);
+    System.out.println(adsList);
 
     String search = request.getParameter("search");
-    List<Ad> adsList = getAdsDao().all();
+    System.out.println(search);
+    if (request.getParameter("search") == null) {
+      response.sendRedirect("/ads");
 
-    for(Ad ad: adsList){
-      List<Ad> newList = new ArrayList<>();
-      if(ad.getTitle().contains(search) || ad.getDescription().contains(search)){
-        newList.add(ad);
+    } else {
+      for (Ad ad : adsList) {
+        if (ad.getTitle().contains(search) || ad.getDescription().contains(search)) {
+          newList.add(ad);
+          request.setAttribute("title", getAdsDao().findByTitle(ad.getTitle()).getTitle());
+          request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(ad.getTitle()).getDescription());
+        }
       }
+      request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
     }
+
+
 
   } //end of doPost
 }

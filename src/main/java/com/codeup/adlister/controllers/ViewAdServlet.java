@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeup.adlister.dao.DaoFactory.getAdsDao;
+
 
 @WebServlet(name = "controllers.ViewAdServlet", urlPatterns = "/ad")
 public class ViewAdServlet extends HttpServlet {
@@ -19,7 +21,8 @@ public class ViewAdServlet extends HttpServlet {
          List <Ad> allAds = new ArrayList<>();
          allAds = DaoFactory.getAdsDao().all();
          String clickedParam = request.getParameter("selectedValue");
-        System.out.println("first sout" + clickedParam);
+         String search = request.getParameter("search");
+        System.out.println("first sout " + search);
          Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
 
@@ -47,6 +50,22 @@ public class ViewAdServlet extends HttpServlet {
 
 
 
-//Access database
-//pass information from database to ad.jsp
-//Display ad and user information in jsp
+//  List<Ad> adsList = getAdsDao().all();
+//  List<Ad> newList = new ArrayList<>();
+//    request.setAttribute("ads", newList);
+//
+//            String search = request.getParameter("search");
+//            System.out.println(search);
+//            if (request.getParameter("search") == null) {
+//            response.sendRedirect("/ads");
+//
+//            } else {
+//            for (Ad ad : adsList) {
+//            if (ad.getTitle().contains(search) || ad.getDescription().contains(search)) {
+//            newList.add(ad);
+//            request.setAttribute("title", getAdsDao().findByTitle(search).getTitle());
+//            request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(search).getDescription());
+//            }
+//            }
+//            request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
+//            }
