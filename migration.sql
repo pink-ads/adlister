@@ -21,3 +21,5 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 );
 
+ALTER TABLE users ADD UNIQUE (username);
+ALTER TABLE users ADD UNIQUE (email);
