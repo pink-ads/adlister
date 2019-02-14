@@ -31,7 +31,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/profile">My Ads</a>
                         <a class="dropdown-item" href="/ads/create">Create Ad</a>
-                        <a class="dropdown-item" href="#">Update Profile</a>
+                        <a class="dropdown-item" href="/updateProfile">Update Profile</a>
 
 
                         <div class="dropdown-divider"></div>
