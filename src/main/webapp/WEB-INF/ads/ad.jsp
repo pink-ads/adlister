@@ -17,12 +17,12 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
-        <h1>This is a single ad</h1>
+        <h1>Ad Details...</h1>
             <div class="col-md-6">
                 <h2>${title}</h2>
                 <h3>${description}</h3>
-                <%--<h4>${username}</h4>--%>
-                <%--<h4>${email}</h4>--%>
+                <h4>Created By: ${username}</h4>
+                <h4>Contact: ${email}</h4>
             </div>
     </div>
 

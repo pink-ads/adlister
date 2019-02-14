@@ -22,6 +22,7 @@ public class ViewAdServlet extends HttpServlet {
         System.out.println("first sout" + clickedParam);
          Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
+
         for(int i = 0; i < allAds.size(); i++){
             if(foundAdByTitle == null){
                 response.sendRedirect("/ads");
@@ -29,6 +30,10 @@ public class ViewAdServlet extends HttpServlet {
             else if (allAds.get(i).getTitle().equals(foundAdByTitle.getTitle())){
                 request.setAttribute("title", allAds.get(i).getTitle());
                 request.setAttribute("description", allAds.get(i).getDescription());
+                Long foundByTitleId = foundAdByTitle.getUserId();
+                //get the username using the userId from Ad object
+                request.setAttribute("username", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getUsername());
+                request.setAttribute("email", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getEmail());
 //
 // function call that accesses user table and returns username and email
                  request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
