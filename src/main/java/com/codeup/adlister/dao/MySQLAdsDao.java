@@ -38,6 +38,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public Ad findByTitle(String title) {
+        PreparedStatement stmt = null;
+        Ad ad = null;
+        try {
+            String sql = "SELECT * FROM ads where title = ?";
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, title);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return extractAd(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
