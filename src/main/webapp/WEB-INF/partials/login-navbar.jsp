@@ -9,6 +9,11 @@
             <%--<li><a href="/logout">Logout</a></li>--%>
             <li><a href="/register">Register</a></li>
         </ul>
+        <form method="post" class="form-inline my-2 my-lg-0" action="/results">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search Ads">
+        <input type="submit" class="btn btn-outline-success my-2 my-sm-0"Search>
+
+    </form>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 
