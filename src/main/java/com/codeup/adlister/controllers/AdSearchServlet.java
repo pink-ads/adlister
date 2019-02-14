@@ -39,8 +39,9 @@ request.getRequestDispatcher("/WEB-INF/ads/searchResults.jsp").forward(request,r
       for (Ad ad : adsList) {
         if (ad.getTitle().contains(search) || ad.getDescription().contains(search)) {
           newList.add(ad);
-          request.setAttribute("title", getAdsDao().findByTitle(ad.getTitle()).getTitle());
-          request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(ad.getTitle()).getDescription());
+// set attribute methods do not affect code from working
+//          request.setAttribute("title", getAdsDao().findByTitle(ad.getTitle()).getTitle());
+//          request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(ad.getTitle()).getDescription());
         }
       }
       request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);

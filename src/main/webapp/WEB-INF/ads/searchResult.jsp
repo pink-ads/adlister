@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
 
     <div class="container">
         <h1>Here are your search results ${sessionScope.user.username}!</h1>
