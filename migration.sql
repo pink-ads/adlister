@@ -20,3 +20,6 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+ALTER TABLE users ADD UNIQUE (username);
+ALTER TABLE users ADD UNIQUE (email);
