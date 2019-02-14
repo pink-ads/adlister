@@ -43,9 +43,8 @@ public class MySQLAdsDao implements Ads {
         Ad ad = null;
         try {
             String sql = "SELECT * FROM ads where title = ?";
-            String wildCard = "%" + title + "%";
             stmt = connection.prepareStatement(sql);
-            stmt.setString(1, wildCard);
+            stmt.setString(1, title);
             ResultSet rs = stmt.executeQuery();
             rs.next();
             return extractAd(rs);
