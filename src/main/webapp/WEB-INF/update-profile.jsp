@@ -17,7 +17,7 @@
             </jsp:include>
         </head>
 <body>
-    <jsp:include page="partials/login-navbar.jsp"/>
+    <jsp:include page="partials/profile-navbar.jsp"/>
     <div class="container">
         <h1>Updating your profile..</h1>
         <form action="/updateProfile" method="POST">
