@@ -27,9 +27,19 @@ public class ListAdsDao implements Ads {
         return ad.getId();
     }
 
+    public Ad update(Ad ad) {
+        //update ad in database
+        return null;
+    }
+
     @Override
     public Ad findByTitle(String title) {
         return null;
+    }
+
+    @Override
+    public void update(String title, String description, Long userId) {
+
     }
 
     private List<Ad> generateAds() {

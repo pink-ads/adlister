@@ -70,6 +70,27 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    public void update(String title, String description, Long userId) {
+        //update ad in database
+        System.out.println(title);
+        System.out.println(description);
+        System.out.println(userId);
+        try {
+//            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+            String insertQuery = "UPDATE ads SET title=?, description=? WHERE user_id = ?";
+            PreparedStatement stmt = connection.prepareStatement(insertQuery);
+//            stmt.setLong(1, ad.getUserId());
+            stmt.setString(1, title);
+            stmt.setString(2, description);
+            stmt.setLong(3, userId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error creating a new ad.", e);
+        }
+    }
+
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),

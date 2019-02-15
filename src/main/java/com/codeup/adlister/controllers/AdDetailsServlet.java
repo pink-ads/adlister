@@ -12,41 +12,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@WebServlet(name = "controllers.ViewAdServlet", urlPatterns = "/ad")
-public class ViewAdServlet extends HttpServlet {
+@WebServlet(name = "controllers.AdDetailsServlet", urlPatterns = "/ad-details")
+public class AdDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-         List <Ad> allAds = new ArrayList<>();
-         allAds = DaoFactory.getAdsDao().all();
-         String clickedParam = request.getParameter("selectedValue");
+        List<Ad> allAds = new ArrayList<>(DaoFactory.getAdsDao().all());
+        String clickedParam = request.getParameter("selectedValue");
         System.out.println("first sout" + clickedParam);
-         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
+        Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
 
-        for(int i = 0; i < allAds.size(); i++){
-            if(foundAdByTitle == null){
+        for (int i = 0; i < allAds.size(); i++) {
+            if (foundAdByTitle == null) {
                 response.sendRedirect("/ads");
-            }
-            else if (allAds.get(i).getTitle().equals(foundAdByTitle.getTitle())){
+            } else if (allAds.get(i).getDescription().equals(foundAdByTitle.getDescription())) {
                 request.setAttribute("title", allAds.get(i).getTitle());
                 request.setAttribute("description", allAds.get(i).getDescription());
                 Long foundByTitleId = foundAdByTitle.getUserId();
                 //get the username using the userId from Ad object
                 request.setAttribute("username", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getUsername());
                 request.setAttribute("email", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getEmail());
-//
-// function call that accesses user table and returns username and email
-                 request.getRequestDispatcher("/WEB-INF/ads/ad.jsp").forward(request, response);
+
+                request.getRequestDispatcher("/WEB-INF/ads/ad-details.jsp").forward(request, response);
             }
         }
 
 
-
     }
-}
+    }
 
-
-
-//Access database
-//pass information from database to ad.jsp
-//Display ad and user information in jsp
