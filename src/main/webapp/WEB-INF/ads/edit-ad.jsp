@@ -14,7 +14,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+    <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
 
 
     <div class="container">
@@ -35,7 +35,7 @@
 
 
 
-
+    <jsp:include page="/WEB-INF/partials/foot.jsp" />
 </body>
 </html>
 

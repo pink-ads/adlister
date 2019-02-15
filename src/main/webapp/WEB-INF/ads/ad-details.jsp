@@ -14,7 +14,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+    <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
 
     <div class="container">
@@ -27,6 +27,6 @@
         <h5>${email}</h5>
 
     </div>
-
+    <jsp:include page="/WEB-INF/partials/foot.jsp" />
 </body>
 </html>
