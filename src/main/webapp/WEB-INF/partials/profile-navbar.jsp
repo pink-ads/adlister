@@ -19,11 +19,27 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <%--<li><a href="/login">Login</a></li>--%>
-            <li><a href="/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav navbar-right">
+                <%--<li><a href="/login">Login</a></li>--%>
+                <li><a href="/logout">Logout</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        My Profile
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/profile">My Ads</a>
+                        <a class="dropdown-item" href="/ads/create">Create Ad</a>
+                        <a class="dropdown-item" href="/updateProfile">Update Profile</a>
+
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 
