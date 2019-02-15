@@ -9,5 +9,5 @@ public interface Users {
     User findByUserId(Long id);
     Long insert(User user);
 
-    void updateUser(String username, String email, String password);
+    void updateUser(String username, String email, Long id);
 }
