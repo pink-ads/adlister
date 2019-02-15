@@ -86,7 +86,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(3, userId);
             stmt.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new ad.", e);
+            throw new RuntimeException("Error updating the ad.", e);
         }
     }
 
