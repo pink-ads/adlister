@@ -10,29 +10,23 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Single Ad Page" />
+        <jsp:param name="title" value="Single Ad Detail Page"/>
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/profile-navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+
 
     <div class="container">
         <h1>Ad Details...</h1>
-            <div class="col-md-6">
+            <div>
                 <h2>${title}</h2>
-                <h3>${description}</h3>
-                <h4>Created By: ${username}</h4>
-                <h4>Contact: ${email}</h4>
             </div>
+                <h3>${description}</h3>
+        <h5>${username}</h5>
+        <h5>${email}</h5>
+
     </div>
 
-    
 </body>
 </html>
-
-
-<%--single ad--%>
-<%--title--%>
-<%--description--%>
-<%--username--%>
-<%--email--%>

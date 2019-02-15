@@ -23,16 +23,16 @@ public class ViewProfileServlet extends HttpServlet {
         }
         List<Ad> allAds = new ArrayList<>(DaoFactory.getAdsDao().all());
         List<Ad> myAds = new ArrayList<>();
-        request.setAttribute("ads", myAds);
 
         for(int i = 0; i < allAds.size(); i++){
             if( currentUser.getId() == allAds.get(i).getUserId()){
             //add allAds.get(i) to myAds array
                 myAds.add(allAds.get(i));
             }
-                request.setAttribute("title", allAds.get(i).getTitle());
-                request.setAttribute("description", allAds.get(i).getDescription());
+//                request.setAttribute("myTitle", allAds.get(i).getTitle());
+//                request.setAttribute("description", allAds.get(i).getDescription());
         }
+        request.setAttribute("ads", myAds);
                 request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 }

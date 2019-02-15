@@ -23,17 +23,18 @@
         <form action="/updateProfile" method="POST">
             <div class="form-group">
                 <label for="new-username">Update Username</label>
-                <input id="new-username" name="new-username" class="form-control" type="text">
+                <textarea id="new-username" name="new-username" class="form-control" type="text">${username}</textarea>
             </div>
             <div class="form-group">
                 <label for="new-email">Update Email</label>
-                <input id="new-email" name="new-email" class="form-control" type="password">
+                <textarea id="new-email" name="new-email" class="form-control" type="text">${email}</textarea>
             </div>
             <div class="form-group">
                 <label for="new-password">Update Password</label>
-                <input id="new-password" name="new-password" class="form-control" type="password">
+                <textarea id="new-password" name="new-password" class="form-control" type="password">${password}</textarea>
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Update My Info!">
+            <input type="submit" name="submit" class="btn btn-primary btn-block" value="Update My Info!">
+            <input type="submit" name="cancel" class="btn btn-warning btn-block" value="Cancel">
         </form>
     </div>
 
