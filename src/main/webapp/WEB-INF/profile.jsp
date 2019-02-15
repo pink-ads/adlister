@@ -11,10 +11,13 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+                <p>Note: To make changes to an existing ad, click on the ad title...</p>
+                <button><a href="/ads/create">Create Another Ad</a></button>
 
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">
-                <h2><a href="/ad?selectedValue=${ad.title}">${ad.title}</a></h2>
+                <h2><a href="/edit-ad?selectedValue=${ad.title}">${ad.title}</a></h2>
+                <%--<h2><a href="/edit-ad?selectedValue=${title}">${title}</a></h2>--%>
                 <p>${ad.description}</p>
             </div>
         </c:forEach>
