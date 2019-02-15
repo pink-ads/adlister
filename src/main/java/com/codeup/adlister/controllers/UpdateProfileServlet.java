@@ -23,16 +23,19 @@ public class UpdateProfileServlet extends HttpServlet {
    request.setAttribute("email", user.getEmail());
    request.setAttribute("password", user.getPassword());
 
+   String action = request.getParameter("");
+
   }
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-    String action = request.getParameter("submit");
+//    String action = request.getParameter("submit");
 
-    if (action.equals("cancel")) {
-      response.sendRedirect("/profile");
-    } else if (action.equals("submit")) {
+//    if (action.equals("cancel")) {
+//      response.sendRedirect("/profile");
+//    } else
+//      if (action.equals("submit")) {
       //assigns the logged in user to a user object
       User user = (User) request.getSession().getAttribute("user");
       //finds the user in the database
@@ -40,15 +43,20 @@ public class UpdateProfileServlet extends HttpServlet {
 
       String newUsername = request.getParameter("new-username");
       String newEmail= request.getParameter("new-email");
-      String newPass = request.getParameter("new-password");
+      Long userId = user.getId();
+        System.out.println(newUsername);
+        System.out.println(newEmail);
+        System.out.println(userId);
+        System.out.println(user);
+//      String newPass = request.getParameter("new-password");
 
-      String newPasswordHashed = Password.hash(newPass);
+//      String newPasswordHashed = Password.hash(newPass);
 
 
-      DaoFactory.getUsersDao().updateUser(newUsername, newEmail, newPasswordHashed);
+      DaoFactory.getUsersDao().updateUser(newUsername, newEmail, userId);
       response.sendRedirect("/profile");
     }
 
 
   }
-}
+
