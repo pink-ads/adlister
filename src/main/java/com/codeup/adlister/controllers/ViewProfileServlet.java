@@ -43,10 +43,16 @@ public class ViewProfileServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
          String[] checkedAds = request.getParameterValues("checked");
-        System.out.println(Arrays.asList(checkedAds));
+         for (String checkedAd : checkedAds) {
+             Long oneCheckedAd = Long.parseLong(checkedAd);
 
-//        DaoFactory.getAdsDao().findByTitle(ad.getTitle())
-//        System.out.println(request.getParameter());
+             DaoFactory.getAdsDao().delete(oneCheckedAd);
+
+
+         }
+        System.out.println(Arrays.asList(checkedAds));
+        response.sendRedirect("/profile");
+
 
     }
 }

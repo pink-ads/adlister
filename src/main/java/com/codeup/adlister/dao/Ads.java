@@ -13,4 +13,5 @@ public interface Ads {
      Ad findByTitle(String title);
      //update edited ad in the database
     void update(String title, String description, Long userId);
+    void delete(Long id);
 }
