@@ -21,7 +21,6 @@ public class EditAdServlet extends HttpServlet {
         String clickedParam = request.getParameter("selectedValue");
         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
-
         for (int i = 0; i < allAds.size(); i++) {
             if (foundAdByTitle == null) {
                 response.sendRedirect("/ads");
@@ -47,7 +46,6 @@ public class EditAdServlet extends HttpServlet {
         request.getSession().invalidate();
         response.sendRedirect("/ads");
     }
-
 }
 
 

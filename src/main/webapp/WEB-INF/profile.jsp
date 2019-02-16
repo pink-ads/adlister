@@ -8,7 +8,6 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
-
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <p>Note: To make changes to an existing ad, click on the ad title...</p>

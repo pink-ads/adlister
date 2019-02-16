@@ -3,12 +3,11 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="Search Results" value="Search Results" />
+        <jsp:param name="Search Results" value="Search Results"/>
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
-
+    <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
     <div class="container">
         <h1>Here are your search results ${sessionScope.user.username}!</h1>
 
@@ -19,6 +18,6 @@
             </div>
         </c:forEach>
     </div>
-    <jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>

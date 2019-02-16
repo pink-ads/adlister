@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +73,8 @@ public class MySQLAdsDao implements Ads {
         System.out.println(description);
         System.out.println(userId);
         try {
-
             String updateQuery = "UPDATE ads SET title=?, description=? WHERE user_id = ?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-//            stmt.setLong(1, ad.getUserId());
             stmt.setString(1, title);
             stmt.setString(2, description);
             stmt.setLong(3, userId);
@@ -112,6 +111,4 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
-
-
 }

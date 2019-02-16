@@ -2,7 +2,6 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +34,6 @@ public class AdDetailsServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/ads/ad-details.jsp").forward(request, response);
             }
         }
-
-
     }
-    }
+}
 

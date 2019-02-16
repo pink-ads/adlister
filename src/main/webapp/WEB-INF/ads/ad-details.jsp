@@ -19,14 +19,14 @@
 
     <div class="container">
         <h1>Ad Details...</h1>
-            <div>
-                <h2>${title}</h2>
-            </div>
-                <h3>${description}</h3>
+        <div>
+            <h2>${title}</h2>
+        </div>
+        <h3>${description}</h3>
         <h5>${username}</h5>
         <h5>${email}</h5>
 
     </div>
-    <jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>

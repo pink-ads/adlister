@@ -19,7 +19,6 @@ public class CreateAdServlet extends HttpServlet {
         } else {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         }
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -43,7 +42,6 @@ public class CreateAdServlet extends HttpServlet {
             System.out.println(user.getId());
             System.out.println(request.getParameter(title));
             System.out.println(request.getParameter(description));
-//        }
         }
     }
 }

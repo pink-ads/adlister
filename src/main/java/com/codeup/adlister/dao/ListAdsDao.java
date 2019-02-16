@@ -36,12 +36,10 @@ public class ListAdsDao implements Ads {
 
     @Override
     public void update(String title, String description, Long userId) {
-
     }
 
     @Override
     public void delete(Long id) {
-
     }
 
     private List<Ad> generateAds() {

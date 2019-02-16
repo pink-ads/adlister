@@ -3,17 +3,17 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Please Log In" />
+        <jsp:param name="title" value="Please Log In"/>
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
     <div class="container">
         <h1>Please Log In</h1>
         <c:choose>
             <c:when test="${incorrectUsername}">
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Incorrect username!</strong> If you do not have an account, please register.
+                    <strong>Enter a valid username!</strong> If you do not have an account, please register.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,9 +27,6 @@
                     </button>
                 </div>
             </c:when>
-            <%--<c:otherwise>--%>
-            <%--<p>none of the above tests were true</p>--%>
-            <%--</c:otherwise>--%>
         </c:choose>
         <form action="/login" method="POST">
             <div class="form-group">
@@ -43,6 +40,6 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
-    <jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>
