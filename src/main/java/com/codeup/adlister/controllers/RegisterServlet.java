@@ -33,6 +33,9 @@ public class RegisterServlet extends HttpServlet {
             || (! password.equals(passwordConfirmation));
 
         if (inputHasErrors) {
+            //if statement for empty or incorrect email format
+            //if statement for empty field
+            //if statement for mismatched passwords
             response.sendRedirect("/register");
             return;
         }

@@ -1,3 +1,4 @@
 'use strict';
 
-$('#mainHeader').css("display", "none");
+// $('#mismatchedPasswords').css("display", "none");
+// $('#mainHeader').css("display", "none");

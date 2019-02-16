@@ -36,21 +36,19 @@ public class EditAdServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
             }
         }
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         Long userId = user.getId();
         String editTitle = request.getParameter("editTitle");
-        String editDescription =  request.getParameter("editDescription");
-        DaoFactory.getAdsDao().update(editTitle, editDescription,  userId);
+        String editDescription = request.getParameter("editDescription");
+        DaoFactory.getAdsDao().update(editTitle, editDescription, userId);
         request.getSession().invalidate();
         response.sendRedirect("/ads");
-        }
-
     }
+
+}
 
 
 

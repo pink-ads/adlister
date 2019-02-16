@@ -17,9 +17,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -70,14 +70,13 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     public void update(String title, String description, Long userId) {
         //update ad in database
         System.out.println(title);
         System.out.println(description);
         System.out.println(userId);
         try {
-//            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
+
             String updateQuery = "UPDATE ads SET title=?, description=? WHERE user_id = ?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 //            stmt.setLong(1, ad.getUserId());
@@ -90,30 +89,23 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
     public void delete(Long id) {
-
         try {
-
             String updateQuery = "Delete from ads WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, id);
-
             stmt.executeUpdate();
-            System.out.println(stmt);
         } catch (SQLException e) {
             throw new RuntimeException("Error updating the ad.", e);
         }
     }
 
-
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 

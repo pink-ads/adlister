@@ -8,7 +8,17 @@
 <body>
     <jsp:include page="partials/login-navbar.jsp" />
     <div class="container">
-        <h1>Please fill in your information.</h1>
+        <h1 id="mainHeader">Please fill in your information.</h1>
+        <%--<div id="mismatchedPasswords" class="alert alert-warning" role="alert">--%>
+            <%--<strong>Warning!</strong> Mismatched Passwords.--%>
+        <%--</div>--%>
+        <%--<div class="alert alert-warning incorrectEmail" role="alert">--%>
+            <%--<strong>Warning!</strong> Incorrect Email Format.--%>
+        <%--</div>--%>
+        <%--<div class="alert alert-warning missingFields" role="alert">--%>
+            <%--<strong>Warning!</strong> Fill in all fields.--%>
+        <%--</div>--%>
+
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
