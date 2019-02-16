@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,6 +10,27 @@
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
     <div class="container">
         <h1>Please Log In</h1>
+        <c:choose>
+            <c:when test="${incorrectUsername}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Incorrect username!</strong> If you do not have an account, please register.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+            <c:when test="${incorrectPassword}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Incorrect password</strong> Please re-enter your credentials.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+            <%--<c:otherwise>--%>
+            <%--<p>none of the above tests were true</p>--%>
+            <%--</c:otherwise>--%>
+        </c:choose>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>

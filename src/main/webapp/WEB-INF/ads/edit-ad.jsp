@@ -40,8 +40,3 @@
 </html>
 
 
-<%--single ad--%>
-<%--title--%>
-<%--description--%>
-<%--username--%>
-<%--email--%>

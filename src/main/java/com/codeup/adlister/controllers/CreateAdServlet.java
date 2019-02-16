@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("user") == null) {
+        if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
         } else {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
@@ -22,14 +22,28 @@ public class CreateAdServlet extends HttpServlet {
 
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
         Ad ad = new Ad(
-            user.getId(),
-            request.getParameter("title"),
-            request.getParameter("description")
+                user.getId(),
+                title,
+                description
         );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        if (title.equals("") || description.equals("")) {
+            //warning message
+            request.setAttribute("missingTitle", true);
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+
+        } else {
+            DaoFactory.getAdsDao().insert(ad);
+            response.sendRedirect("/ads");
+
+            System.out.println(user.getId());
+            System.out.println(request.getParameter(title));
+            System.out.println(request.getParameter(description));
+//        }
+        }
     }
 }

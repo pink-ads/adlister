@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,16 +9,29 @@
 <body>
     <jsp:include page="partials/login-navbar.jsp" />
     <div class="container">
-        <h1 id="mainHeader">Please fill in your information.</h1>
-        <%--<div id="mismatchedPasswords" class="alert alert-warning" role="alert">--%>
-            <%--<strong>Warning!</strong> Mismatched Passwords.--%>
-        <%--</div>--%>
-        <%--<div class="alert alert-warning incorrectEmail" role="alert">--%>
-            <%--<strong>Warning!</strong> Incorrect Email Format.--%>
-        <%--</div>--%>
-        <%--<div class="alert alert-warning missingFields" role="alert">--%>
-            <%--<strong>Warning!</strong> Fill in all fields.--%>
-        <%--</div>--%>
+        <h1>Please fill in your information.</h1>
+
+        <c:choose>
+            <c:when test="${missingInformation}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Empty fields!</strong> Complete all fields.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+            <c:when test="${mismatchedPasswords}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Passwords do not match!</strong> Please re-enter your credentials.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+            <%--<c:otherwise>--%>
+            <%--<p>none of the above tests were true</p>--%>
+            <%--</c:otherwise>--%>
+        </c:choose>
 
         <form action="/register" method="post">
             <div class="form-group">

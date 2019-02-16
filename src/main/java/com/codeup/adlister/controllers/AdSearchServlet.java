@@ -44,6 +44,7 @@ request.getRequestDispatcher("/WEB-INF/ads/searchResults.jsp").forward(request,r
 //          request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(ad.getTitle()).getDescription());
         }
       }
+
       request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
     }
 
