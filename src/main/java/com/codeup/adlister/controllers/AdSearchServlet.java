@@ -27,18 +27,15 @@ public class AdSearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Ad> adsList = getAdsDao().all();
         List<Ad> newList = new ArrayList<>();
-        request.setAttribute("ads", newList);
-        System.out.println(adsList);
-
         String search = request.getParameter("search");
-        System.out.println(search);
+
         if (request.getParameter("search") == null) {
             response.sendRedirect("/ads");
-
         } else {
             for (Ad ad : adsList) {
-                if (ad.getTitle().contains(search) || ad.getDescription().contains(search)) {
+                if (ad.getTitle().toLowerCase().contains(search.toLowerCase()) || ad.getDescription().toLowerCase().contains(search.toLowerCase())) {
                     newList.add(ad);
+                    request.setAttribute("ads", newList);
                 }
             }
             request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
