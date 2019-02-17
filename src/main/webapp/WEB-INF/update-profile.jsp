@@ -11,7 +11,7 @@
     </head>
     <body>
         <jsp:include page="partials/profile-navbar.jsp"/>
-        <div class="container">
+        <div class="container-fluid">
             <h1>Updating your profile..</h1>
             <form action="/updateProfile" method="POST">
                 <div class="form-group">
@@ -28,7 +28,7 @@
                     <textarea id="new-password" name="new-password" class="form-control"
                               type="password">${password}</textarea>
                 </div>
-                <input type="submit" name="submit" class="btn btn-primary btn-block" value="Update My Info!">
+                <input type="submit" name="submit" class="btn btn-success btn-block" value="Update My Info!">
                 <input type="submit" name="cancel" class="btn btn-warning btn-block" value="Cancel">
             </form>
         </div>

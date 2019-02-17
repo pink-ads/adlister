@@ -25,19 +25,19 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-        Ad ad = new Ad(
-                user.getId(),
-                title,
-                description
-        );
         if (title.equals("") || description.equals("")) {
             //warning message
             request.setAttribute("missingTitle", true);
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
 
         } else {
+            Ad ad = new Ad(
+                    user.getId(),
+                    DaoFactory.getAdsDao().upperCasedTitle(title),
+                    description
+            );
             DaoFactory.getAdsDao().insert(ad);
-            response.sendRedirect("/ads");
+            response.sendRedirect("/profile");
 
             System.out.println(user.getId());
             System.out.println(request.getParameter(title));

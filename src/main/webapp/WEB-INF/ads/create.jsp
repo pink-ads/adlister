@@ -30,7 +30,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-            <input type="submit" class="btn btn-block btn-primary submit-ad">
+            <input type="submit" class="btn btn-block btn-secondary submit-ad">
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

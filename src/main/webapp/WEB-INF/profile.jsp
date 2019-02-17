@@ -9,18 +9,19 @@
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
     <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
-        <p>Note: To make changes to an existing ad, click on the ad title...</p>
-        <button><a href="/ads/create">Create Another Ad</a></button>
+        <h3>Welcome, ${sessionScope.user.username}!</h3>
+        <div class="alert alert-secondary" role="alert">
+            To make changes to an existing ad, click on the ad title.
+        </div>
         <form method="POST" action="/profile">
             <c:forEach var="ad" items="${ads}">
-                <div class="col-md-6">
-                    <h2><a href="/edit-ad?selectedValue=${ad.title}">${ad.title}</a></h2>
-                    <p>${ad.description}</p>
-                    <input type="checkbox" name="checked" value=${ad.id}>
+                <div class="col">
+                    <input class="mr-2 mb-2" type="checkbox" name="checked" value=${ad.id}><span>
+                    <h4 class="d-inline"><a href="/edit-ad?selectedValue=${ad.title}">${ad.title}</a></h4></span>
+                    <p class="ml-4">${ad.description}</p>
                 </div>
             </c:forEach>
-            <button type="submit">Confirm deletion</button>
+            <input type="submit" class="btn btn-danger btn-block col-2 mx-auto"  style="width: 200px;" value="Confirm Deletion">
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

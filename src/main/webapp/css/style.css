@@ -1,0 +1,22 @@
+.card {
+    border: none;
+    text-align: center;
+    min-width: 200px !important;
+    max-width: 200px !important;
+}
+.card-body {
+    margin-top: -1.5rem;
+}
+.img-container {
+    background-image: url("/bootflat/img/check_flat/prana-henna.jpg");
+    background-size: cover;
+    height:50%;
+}
+.img-container-ads {
+    background-image: url("/bootflat/img/check_flat/prana-henna.jpg");
+    background-size: cover;
+    height:40%;
+}
+.dropdown-menu {
+    background-color: white !important;
+}

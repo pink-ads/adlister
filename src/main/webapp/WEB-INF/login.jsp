@@ -8,8 +8,8 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
-    <div class="container">
-        <h1>Please Log In</h1>
+        <h3 class="text-center">Please Log In</h3>
+    <div class="container col-5">
         <c:choose>
             <c:when test="${incorrectUsername}">
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -37,7 +37,7 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            <input type="submit" class="btn btn-secondary btn-block" value="Log In">
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

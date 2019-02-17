@@ -10,14 +10,27 @@
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
     <div class="container">
-        <h1>Here Are all the ads!</h1>
-        <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h2><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a></h2>
-                <p>${ad.getDescription()}</p>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="img-container-ads">
+                <h4 class="display-4">Pink Ads</h4>
+                <h6 class="lead">Classified ads for yogi's</h6>
             </div>
+        </div>
+        <div class="row">
+        <c:forEach var="ad" items="${ads}">
+        <div class="col-3">
+            <div class="card d-inline" style="width: 18rem;">
+                <img src="/imgs/for-sale.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a></h5>
+                        <%--<p>${ad.getDescription()}</p>--%>
+                </div>
+            </div>
+                </div>
         </c:forEach>
+            </div>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>
+

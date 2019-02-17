@@ -9,7 +9,13 @@
 <body>
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="img-container">
+                <h4 class="display-4">Pink Ads</h4>
+                <h6 class="lead">Classified ads for yogi's</h6>
+            </div>
+        </div>
+        <h3>You shouldn't have to stretch your wallet to practice</h3>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

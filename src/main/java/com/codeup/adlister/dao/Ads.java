@@ -15,4 +15,5 @@ public interface Ads {
     void update(String title, String description, Long userId);
     //delete ads in the database
     void delete(Long id);
+    String upperCasedTitle(String title);
 }
