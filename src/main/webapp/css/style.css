@@ -1,0 +1,36 @@
+body {
+    box-sizing: border-box;
+    margin: 2% 1%;
+}
+.card {
+    border: none;
+    text-align: center;
+    min-width: 150px !important;
+    max-width: 150px !important;
+}
+.card-body {
+    margin-top: -1.5rem;
+}
+.img-container-index {
+    background-image: url("/imgs/header.png");
+    background-size: cover;
+    height:70%;
+}
+.img-container-adlist {
+    background-image: url("/imgs/header.png");
+    background-size: cover;
+    height:70%;
+}
+.dropdown-menu {
+    background-color: white !important;
+}
+img.card-img-top.img-icon-card {
+    opacity: 0.2 !important;
+}
+img.card-img-top.img-icon-card:hover {
+    opacity: 0.9 !important;
+}
+.blue{
+    color: #7BBFDB !important;
+}
+

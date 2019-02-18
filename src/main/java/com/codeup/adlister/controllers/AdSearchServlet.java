@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,36 +19,35 @@ import static com.codeup.adlister.dao.DaoFactory.getAdsDao;
 @WebServlet(urlPatterns = "/results")
 public class AdSearchServlet extends HttpServlet {
 
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-request.getRequestDispatcher("/WEB-INF/ads/searchResults.jsp").forward(request,response);
-  } //end of doGet
-
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    List<Ad> adsList = getAdsDao().all();
-    List<Ad> newList = new ArrayList<>();
-    request.setAttribute("ads", newList);
-    System.out.println(adsList);
-
-    String search = request.getParameter("search");
-    System.out.println(search);
-    if (request.getParameter("search") == null) {
-      response.sendRedirect("/ads");
-
-    } else {
-      for (Ad ad : adsList) {
-        if (ad.getTitle().contains(search) || ad.getDescription().contains(search)) {
-          newList.add(ad);
-// set attribute methods do not affect code from working
-//          request.setAttribute("title", getAdsDao().findByTitle(ad.getTitle()).getTitle());
-//          request.setAttribute("description", DaoFactory.getAdsDao().findByTitle(ad.getTitle()).getDescription());
-        }
-      }
-      request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/ads/searchResults.jsp").forward(request, response);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Ad> adsList = getAdsDao().all();
+        List<Ad> newList = new ArrayList<>();
+        String search = request.getParameter("search");
 
+        User currentUser = (User) (request.getSession().getAttribute("user"));
+        System.out.println(currentUser);
+        if(currentUser != null) {
+            request.setAttribute("LoggedIn", true);
+        }else{
+            request.setAttribute("notLoggedIn", true);
+        }
 
-  } //end of doPost
+        if (request.getParameter("search") == null) {
+            response.sendRedirect("/ads");
+        } else {
+            for (Ad ad : adsList) {
+                if (ad.getTitle().toLowerCase().contains(search.toLowerCase()) || ad.getDescription().toLowerCase().contains(search.toLowerCase())) {
+                    newList.add(ad);
+                    request.setAttribute("ads", newList);
+                }
+            }
+            request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
+        }
+    }
 }

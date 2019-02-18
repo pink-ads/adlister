@@ -3,11 +3,20 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="Search Results" value="Search Results" />
+        <jsp:param name="Search Results" value="Search Results"/>
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/login-navbar.jsp" />
+
+
+    <c:choose>
+        <c:when test="${notLoggedIn}">
+    <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
+        </c:when>
+        <c:when test="${LoggedIn}">
+            <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
+        </c:when>
+    </c:choose>
 
     <div class="container">
         <h1>Here are your search results ${sessionScope.user.username}!</h1>
@@ -19,6 +28,6 @@
             </div>
         </c:forEach>
     </div>
-    <jsp:include page="/WEB-INF/partials/foot.jsp" />
+    <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>
