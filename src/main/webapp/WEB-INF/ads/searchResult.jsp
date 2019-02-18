@@ -7,7 +7,17 @@
     </jsp:include>
 </head>
 <body>
+
+
+    <c:choose>
+        <c:when test="${notLoggedIn}">
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
+        </c:when>
+        <c:when test="${LoggedIn}">
+            <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
+        </c:when>
+    </c:choose>
+
     <div class="container">
         <h1>Here are your search results ${sessionScope.user.username}!</h1>
 
