@@ -11,5 +11,5 @@ public interface Users {
 
     Long insert(User user);
 
-    void updateUser(String username, String email, String password);
+    void updateUser(String username, String email, Long id);
 }
