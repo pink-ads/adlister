@@ -10,12 +10,12 @@
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
-            <div class="img-container">
-                <h4 class="display-4">Pink Ads</h4>
-                <h6 class="lead">Classified ads for yogi's</h6>
+            <div class="img-container-index">
+                <h4 class="display-4 d-inline mr-4 blue">Mentor Lister</h4>
+                <h6 class="lead d-inline">Classified ads for Software Developers seeking Mentorship</h6>
             </div>
         </div>
-        <h3>You shouldn't have to stretch your wallet to practice</h3>
+        <h3 class="text-center blue">Software Development built with the Developer in Mind</h3>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
