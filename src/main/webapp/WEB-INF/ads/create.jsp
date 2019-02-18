@@ -21,18 +21,20 @@
                 </div>
             </c:when>
         </c:choose>
+
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
+                <textarea id="title" name="title" class="form-control" type="text">${oldTitle}</textarea>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control" type="text">${oldDescription}</textarea>
             </div>
             <input type="submit" class="btn btn-block btn-secondary submit-ad">
         </form>
     </div>
+
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>
