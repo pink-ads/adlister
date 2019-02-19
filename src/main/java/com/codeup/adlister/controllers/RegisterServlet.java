@@ -25,29 +25,40 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
+        request.setAttribute("myUsername", request.getParameter("username"));
+        request.setAttribute("myEmail", request.getParameter("email"));
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         String hashedPass = Password.hash(password);
 
+
+
+        String myUsername = (String) request.getAttribute("myUsername");
+        System.out.println(myUsername);
+        String myEmail = (String) request.getAttribute("myEmail");
+        System.out.println(myEmail);
+
         // validate input
-        boolean inputHasErrors = username.isEmpty()
-                || email.isEmpty()
-                || password.isEmpty();
+//        boolean inputHasErrors = myUsername.isEmpty()
+//                || myEmail.isEmpty()
+//                || password.isEmpty();
         boolean mismatchedPasswords = !password.equals(passwordConfirmation);
 
-        if (inputHasErrors) {
+
+        if (myUsername == null || myEmail == null || myUsername == "" || myEmail == "" || password.isEmpty() || passwordConfirmation.isEmpty()) {
             request.setAttribute("missingInformation", true);
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-            return;
         } else if (mismatchedPasswords) {
             request.setAttribute("mismatchedPasswords", true);
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
         } else {
             // create and save a new user
-            User user = new User(username, email, hashedPass);
+            User user = new User(myUsername, myEmail, hashedPass);
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         }
