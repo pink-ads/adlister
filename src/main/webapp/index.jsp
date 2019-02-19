@@ -8,29 +8,38 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
-    <div class="container">
+    <div class="container-fluid">
         <div class="jumbotron jumbotron-fluid">
             <div class="img-container-index">
                 <h4 class="display-4 d-inline mr-4 blue">Mentor Lister</h4>
                 <h6 class="lead d-inline">Classified ads for Software Developers seeking Mentorship</h6>
             </div>
         </div>
-        <h3 class="text-center blue">Software Development built with the Developer in Mind</h3>
-        <ul class="list-group list-group-flush col-1">
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo text-right" src ="/imgs/css-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/html-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/js-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/angular-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/bootstrap-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/c-plus-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/java-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/jquery-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/node-js-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/react-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/git-hub-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/php-logo.png"></li>
-            <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src ="/imgs/vue-logo.png"></li>
-        </ul>
+        <div class="mid-body container-fluid">
+            <h3 class="text-center lead blue">Software Development built with the Developer in Mind</h3>
+            <div class="row">
+                <div class="col-1">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/css-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/html-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/js-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/angular-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/bootstrap-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/c-plus-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/java-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/jquery-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/node-js-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/react-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/git-hub-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/php-logo.png"></li>
+                        <li class="list-group-item flex-fill mx-auto" style="width: 200px;"><img class="logo" src="/imgs/vue-logo.png"></li>
+                    </ul>
+                </div>
+                <div class="col-11">
+
+                </div>
+            </div>
+        </div>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

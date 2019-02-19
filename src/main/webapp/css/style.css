@@ -37,4 +37,7 @@ img.card-img-top.img-icon-card:hover {
     width: 75px !important;
     /*display: inline;*/
 }
+.flex-fill {
+    text-align: center;
+}
 
