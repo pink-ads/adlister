@@ -33,4 +33,8 @@ img.card-img-top.img-icon-card:hover {
 .blue{
     color: #7BBFDB !important;
 }
+.logo {
+    width: 75px !important;
+    /*display: inline;*/
+}
 
