@@ -17,7 +17,7 @@ import java.util.List;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User currentUser = (User) (request.getSession().getAttribute("user"));
+        User currentUser = (User) request.getSession().getAttribute("user");
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;

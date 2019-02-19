@@ -28,27 +28,41 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
+        request.setAttribute("myUsername", request.getParameter("username"));
+        request.setAttribute("myEmail", request.getParameter("email"));
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         String hashedPass = Password.hash(password);
-        System.out.println(email);
+//        System.out.println(email);
+
+
+
+        String myUsername = (String) request.getAttribute("myUsername");
+        System.out.println(myUsername);
+        String myEmail = (String) request.getAttribute("myEmail");
+        System.out.println(myEmail);
 
         // validate input
-        boolean inputHasErrors = username.isEmpty()
+//        boolean inputHasErrors = myUsername.isEmpty()
+//                || myEmail.isEmpty()
+//                || password.isEmpty();
+//        boolean inputHasErrors = username.isEmpty()
 //                || email.isEmpty()
-                || password.isEmpty();
+//                || password.isEmpty();
         boolean mismatchedPasswords = !password.equals(passwordConfirmation);
         //calling the method that validates the email
-        boolean validateEmail = !(ValidationEmail.isValidEmail(email));
+        boolean validateEmail = !(ValidationEmail.isValidEmail(myEmail));
         boolean passwordLength = !(password.length() >= 8);
         System.out.println(passwordLength);
 
         //this displays an error message when validating if the inputs are the right format or empty
-        if (inputHasErrors) {
+//        if (inputHasErrors) {
             //this connects to the register.jsp by being true and it displays the bootstrap error message
+
+        if (myUsername == null || myEmail == null || myUsername == "" || myEmail == "" || password.isEmpty() || passwordConfirmation.isEmpty()) {
             request.setAttribute("missingInformation", true);
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
 
@@ -62,6 +76,9 @@ public class RegisterServlet extends HttpServlet {
             } catch (ServletException e) {
                 e.printStackTrace();
             }
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
 
         } else if (validateEmail) {
@@ -70,7 +87,7 @@ public class RegisterServlet extends HttpServlet {
 
         }else {
             // create and save a new user
-            User user = new User(username, email, hashedPass);
+            User user = new User(myUsername, myEmail, hashedPass);
             DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
         }
