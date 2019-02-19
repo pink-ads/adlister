@@ -23,16 +23,20 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        String username = request.getParameter("username");
+         request.setAttribute("myUsername", request.getParameter("username"));
+        String username = (String) request.getAttribute("myUsername");
+
         String password = request.getParameter("password");
-        request.getSession().setAttribute("enteredUsername", username);
-        request.getSession().setAttribute("enteredPassword", password);
+//        request.getSession().setAttribute("enteredUsername", username);
+//        request.getSession().setAttribute("enteredPassword", password);
+
 
         User user = DaoFactory.getUsersDao().findByUsername(username);
         if (user == null) {
             //show error message username not exist
             request.setAttribute("incorrectUsername", true);
-            request.getAttribute("enteredUsername");
+//            request.getAttribute("enteredUsername");
+            request.setAttribute("oldUsername", username);
             request.getAttribute(password);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
