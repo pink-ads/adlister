@@ -23,7 +23,7 @@
         </c:choose>
 
         <form action="/ads/create" method="post">
-            <div class="form-group">e
+            <div class="form-group">
                 <label for="title">Title</label>
                 <textarea id="title" name="title" class="form-control" type="text">${oldTitle}</textarea>
             </div>
