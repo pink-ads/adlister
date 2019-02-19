@@ -14,27 +14,41 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("user") == null) {
+        if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
         } else {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         }
-
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
-        Ad ad = new Ad(
-            user.getId(),
-            request.getParameter("title"),
-            request.getParameter("description")
 
-        );
-        DaoFactory.getAdsDao().insert(ad);
-        response.sendRedirect("/ads");
+        request.setAttribute("myTitle", request.getParameter("title"));
+        request.setAttribute("myDescription", request.getParameter("description"));
+        System.out.println("get parameter title is " + request.getParameter("title"));
 
 
+        String myTitle = (String) request.getAttribute("myTitle");
+        System.out.println(myTitle);
+        String myDescription = (String) request.getAttribute("myDescription");
+        System.out.println(myDescription);
 
+        if ((myTitle == null || myDescription == null) || (myTitle == "" || myDescription == "")){
 
+            //warning message
+            request.setAttribute("missingTitle", true);
+            request.setAttribute("oldTitle", myTitle);
+            request.setAttribute("oldDescription", myDescription);
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
+        } else {
+            Ad ad = new Ad(
+                    user.getId(),
+                    DaoFactory.getAdsDao().upperCasedTitle(myTitle),
+                    myDescription
+            );
+            DaoFactory.getAdsDao().insert(ad);
+            response.sendRedirect("/profile");
+        }
     }
 }

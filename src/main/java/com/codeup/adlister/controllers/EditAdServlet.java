@@ -19,8 +19,8 @@ public class EditAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Ad> allAds = new ArrayList<>(DaoFactory.getAdsDao().all());
         String clickedParam = request.getParameter("selectedValue");
+        request.getSession().setAttribute("selectedAd", clickedParam);
         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
-
 
         for (int i = 0; i < allAds.size(); i++) {
             if (foundAdByTitle == null) {
@@ -36,21 +36,29 @@ public class EditAdServlet extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
             }
         }
-
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
-        Long userId = user.getId();
+        String originalTitle = (String) request.getSession().getAttribute("selectedAd");
+        System.out.println(originalTitle);
+//        Long id = user.getId();
         String editTitle = request.getParameter("editTitle");
-        String editDescription =  request.getParameter("editDescription");
-        DaoFactory.getAdsDao().update(editTitle, editDescription,  userId);
-        request.getSession().invalidate();
-        response.sendRedirect("/ads");
-        }
+        String editDescription = request.getParameter("editDescription");
+        Ad currentAd = DaoFactory.getAdsDao().findByTitle(originalTitle);
+        Long currentId = currentAd.getId();
 
+        if (editTitle.equals("") || editDescription.equals("")) {
+            //warning message
+            request.setAttribute("missingFields", true);
+            request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
+        }else {
+            DaoFactory.getAdsDao().update(DaoFactory.getAdsDao().upperCasedTitle(editTitle), editDescription, currentId);
+//        request.getSession().invalidate();
+            response.sendRedirect("/profile");
+        }
     }
+}
 
 
 

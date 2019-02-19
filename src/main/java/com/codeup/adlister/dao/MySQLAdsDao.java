@@ -3,9 +3,6 @@ package com.codeup.adlister.dao;
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +14,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -70,33 +67,40 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-    public void update(String title, String description, Long userId) {
+    public void update(String title, String description, Long currentId) {
         //update ad in database
         System.out.println(title);
         System.out.println(description);
-        System.out.println(userId);
+        System.out.println(currentId);
         try {
-//            String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
-            String updateQuery = "UPDATE ads SET title=?, description=? WHERE user_id = ?";
+            String updateQuery = "UPDATE ads SET title=?, description=? WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-//            stmt.setLong(1, ad.getUserId());
             stmt.setString(1, title);
             stmt.setString(2, description);
-            stmt.setLong(3, userId);
+            stmt.setLong(3, currentId);
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error updating the ad.", e);
         }
     }
 
+    public void delete(Long id) {
+        try {
+            String updateQuery = "Delete from ads WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating the ad.", e);
+        }
+    }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
@@ -106,5 +110,22 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public String upperCasedTitle(String title){
+        System.out.println(title);
+        StringBuilder result = new StringBuilder(title.length());
+        String words[] = title.split("\\ ");
+        for (int i = 0; i < words.length; i++) {
+            result.append(Character.toUpperCase(words[i].charAt(0))).append(words[i].substring(1)).append(" ");
+        }System.out.println(result);
+        String newResult = result.toString();
+        System.out.println(newResult);
+        return newResult;
+    }
+
+
+    public static void main(String[] args) {
+//        upperCasedTitle("oh my goodness");
     }
 }
