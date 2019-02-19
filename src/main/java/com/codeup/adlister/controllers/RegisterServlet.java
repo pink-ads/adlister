@@ -28,6 +28,8 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        //here the username and email are considered objects
+        //the request.setAttribute is setting the variable myUsername to the user input that is currently username
         request.setAttribute("myUsername", request.getParameter("username"));
         request.setAttribute("myEmail", request.getParameter("email"));
         String password = request.getParameter("password");
@@ -55,10 +57,9 @@ public class RegisterServlet extends HttpServlet {
         boolean passwordLength = !(password.length() >= 8);
         System.out.println(passwordLength);
 
-        //this displays an error message when validating if the inputs are the right format or empty
 //        if (inputHasErrors) {
-            //this connects to the register.jsp by being true and it displays the bootstrap error message
-
+        //this displays an error message when validating if the inputs are the right format or empty
+        //this connects to the register.jsp by being true and it displays the bootstrap error message
         if (myUsername == null || myEmail == null || myUsername == "" || myEmail == "" || password.isEmpty() || passwordConfirmation.isEmpty()) {
             request.setAttribute("missingInformation", true);
             request.setAttribute("oldUsername", myUsername);
