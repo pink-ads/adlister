@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,6 +29,14 @@ public class AdSearchServlet extends HttpServlet {
         List<Ad> adsList = getAdsDao().all();
         List<Ad> newList = new ArrayList<>();
         String search = request.getParameter("search");
+
+        User currentUser = (User) (request.getSession().getAttribute("user"));
+        System.out.println(currentUser);
+        if(currentUser != null) {
+            request.setAttribute("LoggedIn", true);
+        }else{
+            request.setAttribute("notLoggedIn", true);
+        }
 
         if (request.getParameter("search") == null) {
             response.sendRedirect("/ads");

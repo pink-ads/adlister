@@ -61,13 +61,13 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    public void updateUser(String username, String email, String password) {
-        String updateQuery = "UPDATE users SET username=?, email=? WHERE password = ?";
+    public void updateUser(String username, String email, Long id) {
+        String updateQuery = "UPDATE users SET username=?, email= ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, username);
             stmt.setString(2, email);
-            stmt.setString(3, password);
+            stmt.setLong(3, id);
             stmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user info.", e);

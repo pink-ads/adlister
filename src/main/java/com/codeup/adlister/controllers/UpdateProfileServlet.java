@@ -38,11 +38,9 @@ public class UpdateProfileServlet extends HttpServlet {
 
             String newUsername = request.getParameter("new-username");
             String newEmail = request.getParameter("new-email");
-            String newPass = request.getParameter("new-password");
+            Long userId = user.getId();
 
-            String newPasswordHashed = Password.hash(newPass);
-
-            DaoFactory.getUsersDao().updateUser(newUsername, newEmail, newPasswordHashed);
+            DaoFactory.getUsersDao().updateUser(newUsername, newEmail, userId);
             response.sendRedirect("/profile");
         }
     }

@@ -9,18 +9,19 @@
 <body>
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
-    <div class="container">
+
         <div class="jumbotron jumbotron-fluid">
-            <div class="img-container-ads">
-                <h4 class="display-4">Pink Ads</h4>
-                <h6 class="lead">Classified ads for yogi's</h6>
+            <div class="img-container-adlist">
+                <h4 class="display-4 d-inline mr-4 blue">Mentor Lister</h4>
+                <h6 class="lead d-inline">Classified ads for Software Developers seeking Mentorship</h6>
             </div>
         </div>
         <div class="row">
         <c:forEach var="ad" items="${ads}">
-        <div class="col-3">
+        <div class="col-2">
             <div class="card d-inline" style="width: 18rem;">
-                <img src="/imgs/for-sale.png" class="card-img-top" alt="...">
+                <img class="card-img-top img-icon-card" src="/bootflat/img/check_flat/blank-image-icon.png"
+                     href="/ad-details?selectedValue=${ad.getTitle()}" alt="...">
                 <div class="card-body">
                     <h5 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a></h5>
                         <%--<p>${ad.getDescription()}</p>--%>
@@ -29,7 +30,7 @@
                 </div>
         </c:forEach>
             </div>
-    </div>
+
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>
