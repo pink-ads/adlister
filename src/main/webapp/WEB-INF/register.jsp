@@ -28,6 +28,22 @@
                         </button>
                     </div>
                 </c:when>
+                <c:when test="${validateEmail}">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Please enter a valid email!</strong> Format not valid.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:when>
+                <c:when test="${passwordLength}">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Please enter a valid password!</strong> Must be 8 or more characters.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:when>
             </c:choose>
             <form action="/register" method="post">
                 <div class="form-group">
@@ -40,6 +56,8 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
+                    <br>
+                    <small>&lt;Must be 8 or more characters&gt;</small>
                     <input id="password" name="password" class="form-control" type="password">
                 </div>
                 <div class="form-group">

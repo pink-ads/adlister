@@ -33,18 +33,28 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         String hashedPass = Password.hash(password);
+        System.out.println(email);
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
-                || email.isEmpty()
-                || ValidationEmail.isValidEmail(email)
+//                || email.isEmpty()
                 || password.isEmpty();
         boolean mismatchedPasswords = !password.equals(passwordConfirmation);
+        //calling the method that validates the email
+        boolean validateEmail = !(ValidationEmail.isValidEmail(email));
+        boolean passwordLength = !(password.length() >= 8);
+        System.out.println(passwordLength);
 
+        //this displays an error message when validating if the inputs are the right format or empty
         if (inputHasErrors) {
+            //this connects to the register.jsp by being true and it displays the bootstrap error message
             request.setAttribute("missingInformation", true);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
+
+        }else if(passwordLength) {
+            request.setAttribute("passwordLength", true);
+            request.getRequestDispatcher("WEB-INF/register.jsp").forward(request, response);
         } else if (mismatchedPasswords) {
             request.setAttribute("mismatchedPasswords", true);
             try {
@@ -53,7 +63,12 @@ public class RegisterServlet extends HttpServlet {
                 e.printStackTrace();
             }
             return;
-        } else {
+
+        } else if (validateEmail) {
+            request.setAttribute("validateEmail", true);
+            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+
+        }else {
             // create and save a new user
             User user = new User(username, email, hashedPass);
             DaoFactory.getUsersDao().insert(user);
