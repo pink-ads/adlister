@@ -49,6 +49,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             //show error message for incorrect passwords
             request.setAttribute("incorrectPassword", true);
+            request.setAttribute("oldUsername", username);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         }
     }

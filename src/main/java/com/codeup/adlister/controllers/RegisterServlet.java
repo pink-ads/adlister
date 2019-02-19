@@ -68,21 +68,27 @@ public class RegisterServlet extends HttpServlet {
 
         }else if(passwordLength) {
             request.setAttribute("passwordLength", true);
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
             request.getRequestDispatcher("WEB-INF/register.jsp").forward(request, response);
         } else if (mismatchedPasswords) {
             request.setAttribute("mismatchedPasswords", true);
             try {
+                request.setAttribute("oldUsername", myUsername);
+                request.setAttribute("oldEmail", myEmail);
                 request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             } catch (ServletException e) {
                 e.printStackTrace();
             }
-            request.setAttribute("oldUsername", myUsername);
-            request.setAttribute("oldEmail", myEmail);
-            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-            return;
+//            request.setAttribute("oldUsername", myUsername);
+//            request.setAttribute("oldEmail", myEmail);
+//            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+//            return;
 
         } else if (validateEmail) {
             request.setAttribute("validateEmail", true);
+            request.setAttribute("oldUsername", myUsername);
+            request.setAttribute("oldEmail", myEmail);
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
 
         }else {
