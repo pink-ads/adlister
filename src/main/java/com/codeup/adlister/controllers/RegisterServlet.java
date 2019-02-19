@@ -38,8 +38,12 @@ public class RegisterServlet extends HttpServlet {
 
 
         String myUsername = (String) request.getAttribute("myUsername");
-        System.out.println(myUsername);
         String myEmail = (String) request.getAttribute("myEmail");
+
+        myUsername = myUsername.trim();
+        myEmail = myEmail.trim();
+
+        System.out.println(myUsername);
         System.out.println(myEmail);
 
         // validate input
@@ -51,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
 //                || password.isEmpty();
         boolean mismatchedPasswords = !password.equals(passwordConfirmation);
         //calling the method that validates the email
-        boolean validateEmail = !(ValidationEmail.isValidEmail(myEmail));
+        boolean validateEmail = (ValidationEmail.isValidEmail(myEmail));
         boolean passwordLength = !(password.length() >= 8);
         System.out.println(passwordLength);
 
