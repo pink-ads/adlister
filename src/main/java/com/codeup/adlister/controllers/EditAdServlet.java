@@ -19,7 +19,6 @@ public class EditAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Ad> allAds = new ArrayList<>(DaoFactory.getAdsDao().all());
         String clickedParam = request.getParameter("selectedValue");
-        System.out.println("first sout" + clickedParam);
         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
 
@@ -42,28 +41,16 @@ public class EditAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //how to know if user clicks on save button
-        //if user clicks edit use a function in ads to update new information into the database
-        //the request dispatch for edit-ad.jsp
         User user = (User) request.getSession().getAttribute("user");
-                Long userId = user.getId();
-               String editTitle = request.getParameter("editTitle");
-               String editDescription =  request.getParameter("editDescription");
-        System.out.println(user.getUsername());
-//        Ad ad = new Ad(
-//                userId,
-//                editTitle,
-//                editDescription
-//        );
-        System.out.println(userId);
-        System.out.println(editTitle);
-        System.out.println(editDescription);
-         DaoFactory.getAdsDao().update(editTitle, editDescription,  userId);
+        Long userId = user.getId();
+        String editTitle = request.getParameter("editTitle");
+        String editDescription =  request.getParameter("editDescription");
+        DaoFactory.getAdsDao().update(editTitle, editDescription,  userId);
         request.getSession().invalidate();
         response.sendRedirect("/ads");
-    }
+        }
 
-}
+    }
 
 
 
