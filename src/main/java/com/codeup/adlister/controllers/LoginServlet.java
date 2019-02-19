@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String username = (String) request.getAttribute("myUsername");
 
         String password = request.getParameter("password");
-        request.getSession().setAttribute("enteredUsername", username);
+//        request.getSession().setAttribute("enteredUsername", username);
 //        request.getSession().setAttribute("enteredPassword", password);
 
 
@@ -35,7 +35,8 @@ public class LoginServlet extends HttpServlet {
         if (user == null) {
             //show error message username not exist
             request.setAttribute("incorrectUsername", true);
-            request.getAttribute("enteredUsername");
+//            request.getAttribute("enteredUsername");
+            request.setAttribute("oldUsername", username);
             request.getAttribute(password);
             request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             return;
