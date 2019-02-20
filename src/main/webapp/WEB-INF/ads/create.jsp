@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="description">Description</label>
                     <textarea id="description" name="description" class="form-control"
-                              type="text" style="resize:none;" rows="1">${oldDescription}</textarea>
+                              type="text">${oldDescription}</textarea>
                 </div>
                 <input type="submit" class="btn btn-block btn-secondary submit-ad">
             </form>
