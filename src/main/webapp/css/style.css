@@ -33,4 +33,21 @@ img.card-img-top.img-icon-card:hover {
 .blue{
     color: #7BBFDB !important;
 }
+.bk-blue{
+    background-color: #7BBFDB !important;
+    padding:10px;
+}
+.logo {
+    width: 5em!important;
+    /*display: inline;*/
+}
+.logo-minus{
+    height:5em!important;
+}
+.flex-fill {
+    text-align: center;
+}
+.icon-size {
+    width: 2em;
+}
 

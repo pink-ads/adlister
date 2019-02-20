@@ -48,11 +48,11 @@
             <form action="/register" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <textarea id="username" name="username" class="form-control" type="text">${oldUsername}</textarea>
+                    <textarea id="username" name="username" class="form-control" style="resize:none;" rows="1" type="text">${oldUsername}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <textarea id="email" name="email" class="form-control" type="text">${oldEmail}</textarea>
+                    <textarea id="email" name="email" class="form-control" style="resize:none;" rows="1"type="text">${oldEmail}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
