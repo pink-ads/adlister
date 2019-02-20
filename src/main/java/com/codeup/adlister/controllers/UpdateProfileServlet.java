@@ -17,6 +17,7 @@ public class UpdateProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //redirects the logged in user to the update profile page
         request.getRequestDispatcher("WEB-INF/update-profile.jsp").forward(request, response);
+
         User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("username", user.getUsername());
         request.setAttribute("email", user.getEmail());
@@ -26,11 +27,11 @@ public class UpdateProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String action = request.getParameter("submit");
+//        String action = request.getParameter("submit");
 
-        if (action.equals("cancel")) {
-            response.sendRedirect("/profile");
-        } else if (action.equals("submit")) {
+//        if (action.equals("cancel")) {
+//            response.sendRedirect("/profile");
+//        } else if (action.equals("submit")) {
             //assigns the logged in user to a user object
             User user = (User) request.getSession().getAttribute("user");
             //finds the user in the database
@@ -44,4 +45,4 @@ public class UpdateProfileServlet extends HttpServlet {
             response.sendRedirect("/profile");
         }
     }
-}
+
