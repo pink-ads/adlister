@@ -19,7 +19,8 @@
     </c:choose>
 
     <div class="container">
-        <h1>Here are your search results ${sessionScope.user.username}!</h1>
+        <h1>Here are your search results!</h1>
+        <%--${sessionScope.user.username}--%>
 
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">
