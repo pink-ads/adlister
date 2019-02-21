@@ -23,6 +23,10 @@
             <h2>${title}</h2>
         </div>
         <h3>${description}</h3>
+        <h4></h4>
+        <c:forEach var="category" items="${categories}">
+            <p>${category.getCat_name()}</p>
+        </c:forEach>
         <h5>${username}</h5>
         <h5>${email}</h5>
 
