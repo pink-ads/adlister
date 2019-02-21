@@ -52,6 +52,28 @@ public class MySQLCategoriesDao implements Categories{
     }
   }
 
+  public List<Category> getCategories(Long ad_id){
+    PreparedStatement stmt = null;
+
+    Category category = null;
+    try {
+      String sql = "SELECT * FROM categories WHERE cat_id IN (SELECT cat_id FROM ad_category WHERE ad_id = ?)";
+      stmt = connection.prepareStatement(sql);
+      stmt.setLong(1, ad_id);
+      ResultSet rs = stmt.executeQuery();
+      rs.next();
+      return createCategoriesFromResults(rs);
+    } catch (SQLException e) {
+      throw new RuntimeException("Error retrieving category.", e);
+    }
+
+//    SELECT * FROM categories
+//    WHERE cat_id IN (
+//            SELECT cat_id
+//            FROM ad_category
+//            WHERE ad_id = 17
+//    )
+  }
 
 
   private Category extractCategory(ResultSet rs) throws SQLException {

@@ -36,17 +36,19 @@
                               type="text">${oldDescription}</textarea>
                 </div>
                 <input type="submit" class="btn btn-block btn-secondary submit-ad">
+
+                <div>
+                    <c:forEach var="category" items="${categories}">
+                        <input class="mr-2 mb-2" type="checkbox" name="checked" value=${category.cat_id}><span>
+      <h6 class="d-inline">${category.cat_name} ${category.cat_id}</h6></span>
+                    </c:forEach>
+                </div>
             </form>
         </div>
     </div>
 
     <%--either put list of checkboxes for all avail catergories, or put an input for user to enter "tags" = categories --%>
-    <div>
-    <c:forEach var="category" items="${categories}">
-       <input class="mr-2 mb-2" type="checkbox" name="checked" value=${category.cat_id}><span>
-      <h6 class="d-inline">${category.cat_name}</h6></span>
-    </c:forEach>
-    </div>
+
 
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

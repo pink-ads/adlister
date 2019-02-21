@@ -22,9 +22,13 @@
         <div>
             <h3>${title}</h3>
         </div>
-        <h4>${description}</h4>
-        <h6>Name: ${username}</h6>
-        <h6>Email: ${email}</h6>
+        <h3>${description}</h3>
+        <h4></h4>
+        <c:forEach var="category" items="${categories}">
+            <p>${category.getCat_name()}</p>
+        </c:forEach>
+        <h5>${username}</h5>
+        <h5>${email}</h5>
 
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

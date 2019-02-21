@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -19,11 +22,6 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
         } else {
             request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
-
-//            System.out.println(DaoFactory.getCategoriesDao().all());
-//            System.out.println(DaoFactory.getCategoriesDao().findById(1).getCat_id());
-
-
 
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         }
@@ -34,13 +32,13 @@ public class CreateAdServlet extends HttpServlet {
 
         request.setAttribute("myTitle", request.getParameter("title"));
         request.setAttribute("myDescription", request.getParameter("description"));
-        System.out.println("get parameter title is " + request.getParameter("title"));
+//        System.out.println("get parameter title is " + request.getParameter("title"));
 
 
         String myTitle = (String) request.getAttribute("myTitle");
-        System.out.println(myTitle);
+//        System.out.println(myTitle);
         String myDescription = (String) request.getAttribute("myDescription");
-        System.out.println(myDescription);
+//        System.out.println(myDescription);
 
         if ((myTitle == null || myDescription == null) || (myTitle == "" || myDescription == "")){
 
@@ -50,12 +48,31 @@ public class CreateAdServlet extends HttpServlet {
             request.setAttribute("oldDescription", myDescription);
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         } else {
+
             Ad ad = new Ad(
                     user.getId(),
                     DaoFactory.getAdsDao().upperCasedTitle(myTitle),
                     myDescription
             );
-            DaoFactory.getAdsDao().insert(ad);
+            Long ad_id = DaoFactory.getAdsDao().insert(ad);
+            System.out.println("This is our adId: " + ad_id);
+
+            String[] checkedCats = request.getParameterValues("checked");
+            System.out.println("This is our array checkedCats " + checkedCats);
+
+            List<Long> categoryList = new ArrayList<>();
+
+            for (String checkedCat : checkedCats) {
+                Long oneCheckedCat = Long.parseLong(checkedCat);
+                categoryList.add(oneCheckedCat);
+
+            }
+            System.out.println("this is the CategoryList: " + categoryList);
+
+                DaoFactory.getAdCategoriesDao().insert(ad_id,categoryList);
+//            System.out.println("array as list: " + Arrays.asList(checkedCats));
+
+
             response.sendRedirect("/profile");
         }
     }

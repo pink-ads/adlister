@@ -44,7 +44,7 @@ public class ViewProfileServlet extends HttpServlet {
             Long oneCheckedAd = Long.parseLong(checkedAd);
             DaoFactory.getAdsDao().delete(oneCheckedAd);
         }
-        System.out.println(Arrays.asList(checkedAds));
+//        System.out.println(Arrays.asList(checkedAds));
         response.sendRedirect("/profile");
     }
 }
