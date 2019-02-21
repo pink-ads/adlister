@@ -37,6 +37,18 @@ public class MySQLadCategoriesDao implements AdCategories {
     }
   }
 
+  public void delete(Long ad_id) {
+    try {
+      String updateQuery = "Delete from ad_category WHERE ad_id = ?";
+      PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+      stmt.setLong(1, ad_id);
+      stmt.executeUpdate();
+    } catch (SQLException e) {
+      throw new RuntimeException("Error deleting the ad categories.", e);
+    }
+  }
+
+
   @Override
   public Long insert(Long ad_id, List<Long> cat_ids){
     try {

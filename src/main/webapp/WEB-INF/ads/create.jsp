@@ -52,27 +52,18 @@
                         <%--<div class="card card-body">--%>
                         <ul class="list-inline">
                             <c:forEach var="category" items="${categories}">
-                                <li class="list-inline-item btn btn-primary mr-2 mb-2 "><span><input class="" type="checkbox" name="checked" value=${category.cat_id}>
+                                <li class="list-inline-item btn btn-primary mr-2 mb-2 "><span><input class=""
+                                                                                                     type="checkbox"
+                                                                                                     name="checked"
+                                                                                                     value=${category.cat_id}>
                             <h6 class="d-inline">${category.cat_name}</h6></span></li>
                             </c:forEach>
                         </ul>
                     </div>
                 </div>
             </div>
-                <%--<div class="row justify-content-center">--%>
-                    <%--<div class="col-2">--%>
-                        <%--<input type="submit" class="btn btn-block btn-secondary submit-ad">--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
         </form>
     </div>
-    </div>
-    </div>
-
-    <%--either put list of checkboxes for all avail catergories, or put an input for user to enter "tags" = categories --%>
-
-
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
 </html>

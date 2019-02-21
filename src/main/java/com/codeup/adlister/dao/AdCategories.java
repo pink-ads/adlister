@@ -8,4 +8,5 @@ import java.util.List;
 public interface AdCategories {
   List<AdCategory> all();
   Long insert(Long ad_id, List<Long> cat_ids);
+  public void delete(Long ad_id);
 }
