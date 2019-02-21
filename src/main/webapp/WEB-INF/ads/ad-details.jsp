@@ -18,9 +18,9 @@
 
 
     <div class="container">
-        <h1>Ad Details...</h1>
+        <h2 class="blue">Ad Details...</h2>
         <div>
-            <h2>${title}</h2>
+            <h3>${title}</h3>
         </div>
         <h3>${description}</h3>
         <h4></h4>

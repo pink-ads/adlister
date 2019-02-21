@@ -90,7 +90,7 @@
         <c:forEach var="ad" items="${ads}">
             <div class="col-2">
                 <div class="card d-inline" style="width: 18rem;">
-                    <img class="card-img-top img-icon-card" src="/bootflat/img/check_flat/blank-image-icon.png"
+                    <img class="card-img-top img-icon-card opacity" src="/bootflat/img/check_flat/blank-image-icon.png"
                          href="/ad-details?selectedValue=${ad.getTitle()}" alt="...">
                     <div class="card-body">
                         <h5 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
