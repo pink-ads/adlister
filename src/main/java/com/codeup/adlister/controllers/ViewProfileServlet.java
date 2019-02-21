@@ -35,6 +35,7 @@ public class ViewProfileServlet extends HttpServlet {
         }
         request.setAttribute("ads", myAds);
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+
     }
 
 
@@ -46,6 +47,8 @@ public class ViewProfileServlet extends HttpServlet {
         }
 //        System.out.println(Arrays.asList(checkedAds));
         response.sendRedirect("/profile");
+
+
     }
 }
 
