@@ -50,6 +50,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    public List<Ad> findAdsByCategory(String userSearch){
+        PreparedStatement stmt = null;
+        try {
+            String sql = "SELECT * FROM ads WHERE ad_id IN (SELECT ad_id FROM ad_category WHERE cat_id IN (SELECT cat_id FROM categories WHERE cat_name LIKE ?))";
+            stmt = connection.prepareStatement(sql);
+            userSearch = '%'+userSearch +'%';
+            stmt.setString(1, userSearch);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads from search.", e);
+        }
+
+    }
+
     @Override
     public Long insert(Ad ad) {
         try {
@@ -94,6 +109,7 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error updating the ad.", e);
         }
     }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(

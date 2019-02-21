@@ -55,10 +55,10 @@ public class CreateAdServlet extends HttpServlet {
                     myDescription
             );
             Long ad_id = DaoFactory.getAdsDao().insert(ad);
-            System.out.println("This is our adId: " + ad_id);
+//            System.out.println("This is our adId: " + ad_id);
 
             String[] checkedCats = request.getParameterValues("checked");
-            System.out.println("This is our array checkedCats " + checkedCats);
+//            System.out.println("This is our array checkedCats " + checkedCats);
 
             List<Long> categoryList = new ArrayList<>();
 
@@ -67,7 +67,7 @@ public class CreateAdServlet extends HttpServlet {
                 categoryList.add(oneCheckedCat);
 
             }
-            System.out.println("this is the CategoryList: " + categoryList);
+//            System.out.println("this is the CategoryList: " + categoryList);
 
                 DaoFactory.getAdCategoriesDao().insert(ad_id,categoryList);
 //            System.out.println("array as list: " + Arrays.asList(checkedCats));

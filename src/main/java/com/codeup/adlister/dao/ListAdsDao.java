@@ -35,6 +35,11 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> findAdsByCategory(String userSearch) {
+        return null;
+    }
+
+    @Override
     public void update(String title, String description, Long userId) {
     }
 
