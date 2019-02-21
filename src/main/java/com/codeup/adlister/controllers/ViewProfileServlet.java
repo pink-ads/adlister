@@ -49,6 +49,8 @@ public class ViewProfileServlet extends HttpServlet {
         response.sendRedirect("/profile");
 
 
+
+
     }
 }
 

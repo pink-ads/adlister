@@ -21,6 +21,8 @@
                     <p class="ml-4">${ad.description}</p>
                 </div>
             </c:forEach>
+            <input type="submit" class="btn btn-primary btn-block col-2 mx-auto"  style="width: 200px;" value="Create Ad">
+
             <input type="submit" class="btn btn-danger btn-block col-2 mx-auto"  style="width: 200px;" value="Confirm Deletion">
         </form>
     </div>
