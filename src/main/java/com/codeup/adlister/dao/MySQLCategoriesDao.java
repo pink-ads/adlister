@@ -61,7 +61,6 @@ public class MySQLCategoriesDao implements Categories{
       stmt = connection.prepareStatement(sql);
       stmt.setLong(1, ad_id);
       ResultSet rs = stmt.executeQuery();
-      rs.next();
       return createCategoriesFromResults(rs);
     } catch (SQLException e) {
       throw new RuntimeException("Error retrieving category.", e);

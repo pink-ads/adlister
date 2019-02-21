@@ -89,7 +89,7 @@ public class RegisterServlet extends HttpServlet {
 //            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
 //            return;
 
-        } else if (validateEmail) {
+        } else if (!validateEmail) {
             request.setAttribute("validateEmail", true);
             request.setAttribute("oldUsername", myUsername);
             request.setAttribute("oldEmail", myEmail);
