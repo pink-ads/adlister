@@ -50,14 +50,5 @@ public class ViewProfileServlet extends HttpServlet {
 
 
     }
-
-
-
-//    public String capitalizeFirstLetter (String username){
-//        if (username == null || username.length() == 0) {
-//            return username;
-//        }
-//        return username.substring(0, 1).toUpperCase() + username.substring(1);
-//    }
 }
 
