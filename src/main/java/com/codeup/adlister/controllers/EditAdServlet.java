@@ -56,6 +56,12 @@ public class EditAdServlet extends HttpServlet {
             String[] checkedCats = request.getParameterValues("checked");
             System.out.println("This is our array checkedCats " + checkedCats);
 
+            if(checkedCats == null || checkedCats.length == 0) {
+                request.setAttribute("confirmCheckBoxes", true);
+                request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
+            }
+
+
             List<Long> categoryList = new ArrayList<>();
 
             for (String checkedCat : checkedCats) {
@@ -64,6 +70,7 @@ public class EditAdServlet extends HttpServlet {
 
             }
             System.out.println("this is the CategoryList: " + categoryList);
+
 
 
 

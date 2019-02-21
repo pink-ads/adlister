@@ -28,6 +28,16 @@
                         </button>
                     </div>
                 </c:when>
+                <c:when test="${confirmCheckBoxes}">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Please select a category!</strong> Ads cannot be edited with a missing category.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </c:when>
+
             </c:choose>
             <form action="/edit-ad" method="post">
                 <div class="row justify-content-around">

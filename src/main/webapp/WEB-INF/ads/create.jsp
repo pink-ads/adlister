@@ -9,7 +9,35 @@
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
     <div class="container">
-        <h3 class="text-center">Create a new <span class="badge badge-info">Ad</span></h3>
+        <h3 class="text-center">Create a new Ad</h3>
+        <div class="container col-5">
+            <c:choose>
+                <c:when test="${missingTitle}">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Complete all empty fields!</strong> Ads cannot be submitted with a missing title or
+                        description.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:when>
+                <c:when test="${confirmCheckBoxes}">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Please select a category!</strong> Ads cannot be submitted with a missing category.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                </c:when>
+            </c:choose>
+
+            <%--<form action="/ads/create" method="post">--%>
+                <%--<div class="form-group">--%>
+                    <%--<label for="title">Title</label>--%>
+                    <%--<textarea id="title" name="title" class="form-control" type="text" style="resize:none;" rows="1">${oldTitle}</textarea>--%>
+                <%--</div>--%>
+        <%--<h3 class="text-center">Create a new <span class="badge badge-info">Ad</span></h3>--%>
 
         <c:choose>
             <c:when test="${missingTitle}">

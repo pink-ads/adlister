@@ -9,7 +9,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
     <div class="container">
-        <h3>Welcome, ${sessionScope.user.username}!</h3>
+        <h3>Welcome, ${sessionScope.user.username.toUpperCase().charAt(0)}${sessionScope.user.username.substring(1)}!</h3>
         <div class="alert alert-secondary" role="alert">
             To make changes to an existing ad, click on the ad title.
         </div>
