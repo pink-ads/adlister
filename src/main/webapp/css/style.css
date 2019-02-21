@@ -11,6 +11,9 @@ body {
 .card-body {
     margin-top: -1.5rem;
 }
+.list-group-item {
+    border: 0 none;
+}
 .img-container-index {
     background-image: url("/imgs/header.png");
     background-size: cover;
@@ -24,10 +27,10 @@ body {
 .dropdown-menu {
     background-color: white !important;
 }
-img.card-img-top.img-icon-card {
+img.opacity {
     opacity: 0.2 !important;
 }
-img.card-img-top.img-icon-card:hover {
+img.opacity:hover {
     opacity: 0.9 !important;
 }
 .blue{

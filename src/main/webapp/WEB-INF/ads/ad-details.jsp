@@ -18,13 +18,13 @@
 
 
     <div class="container">
-        <h1>Ad Details...</h1>
+        <h2 class="blue">Ad Details...</h2>
         <div>
-            <h2>${title}</h2>
+            <h3>${title}</h3>
         </div>
-        <h3>${description}</h3>
-        <h5>${username}</h5>
-        <h5>${email}</h5>
+        <h4>${description}</h4>
+        <h6>Name: ${username}</h6>
+        <h6>Email: ${email}</h6>
 
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
