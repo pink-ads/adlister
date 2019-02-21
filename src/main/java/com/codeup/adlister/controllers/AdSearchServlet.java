@@ -48,7 +48,7 @@ public class AdSearchServlet extends HttpServlet {
         if (request.getParameter("search") == null) {
             response.sendRedirect("/ads");
         } else {
-          System.out.println(DaoFactory.getAdsDao().findAdsByCategory(search));
+//          System.out.println(DaoFactory.getAdsDao().findAdsByCategory(search));
           List<Ad> adsByCategory = DaoFactory.getAdsDao().findAdsByCategory(search);
           for(Ad ad: adsByCategory){
             newList.add(ad);
