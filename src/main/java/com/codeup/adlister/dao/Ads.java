@@ -10,7 +10,9 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
     //find ad by title
-     Ad findByTitle(String title);
+    Ad findByTitle(String title);
+    //gets ads by search
+    List<Ad> findAdsByCategory(String userSearch);
      //update edited ad in the database
     void update(String title, String description, Long userId);
     //delete ads in the database

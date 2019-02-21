@@ -8,5 +8,5 @@ public interface Categories {
   List<Category> all();
 
   Category findById(Integer number);
-  public List<Category> getCategories(Long ad_id);
+  List<Category> getCategories(Long ad_id);
 }
