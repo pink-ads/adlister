@@ -16,8 +16,8 @@
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
     <div class="container">
-            <h3 class="text-center">Edit Ad...</h3>
-        <div class="col-5">
+        <h3 class="text-center">Edit <span class="badge badge-info">Ad</span></h3>
+        <div class="col-12">
             <c:choose>
                 <c:when test="${missingFields}">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -30,18 +30,44 @@
                 </c:when>
             </c:choose>
             <form action="/edit-ad" method="post">
-                <div class="form-group">
-                    <label for="editTitle">Title</label>
-                    <textarea contenteditable="" id="editTitle" style="resize:none;" rows="1" name="editTitle"
-                              class="form-control"
-                              type="text">${title}</textarea>
+                <div class="row justify-content-around">
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label for="editTitle">Title</label>
+                            <textarea contenteditable="" id="editTitle" style="resize:none;" rows="1" name="editTitle"
+                                      class="form-control"
+                                      type="text">${title}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDescription">Description</label>
+                            <textarea contenteditable="" id="editDescription" name="editDescription"
+                                      class="form-control"
+                                      type="text">${description}</textarea>
+                        </div>
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
+                               aria-expanded="false" aria-controls="collapseExample">
+                                Select Categories
+                            </a>
+                        </p>
+                        <div class="">
+                            <input type="submit" class="btn btn-block btn-secondary">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="collapse " id="collapseExample">
+                            <ul class="list-inline">
+                                <c:forEach var="category" items="${categories}">
+                                    <li class="list-inline-item btn btn-primary mr-2 mb-2 "><span><input class=""
+                                                                                                         type="checkbox"
+                                                                                                         name="checked"
+                                                                                                         value=${category.cat_id}>
+                            <h6 class="d-inline">${category.cat_name}</h6></span></li>
+                                </c:forEach>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="editDescription">Description</label>
-                    <textarea contenteditable="" id="editDescription" name="editDescription" class="form-control"
-                              type="text">${description}</textarea>
-                </div>
-                <input type="submit" class="btn btn-block btn-secondary">
             </form>
         </div>
     </div>

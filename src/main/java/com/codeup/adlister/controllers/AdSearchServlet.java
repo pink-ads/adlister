@@ -38,7 +38,7 @@ public class AdSearchServlet extends HttpServlet {
             request.setAttribute("notLoggedIn", true);
         }
 
-        if (request.getParameter("search") == null) {
+        if (request.getParameter("search") == null || request.getParameter("search") == "") {
             response.sendRedirect("/ads");
         } else {
             for (Ad ad : adsList) {
