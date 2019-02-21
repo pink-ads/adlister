@@ -32,7 +32,7 @@ public class EditAdServlet extends HttpServlet {
                 //get the username using the userId from Ad object
                 request.setAttribute("username", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getUsername());
                 request.setAttribute("email", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getEmail());
-
+                request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
                 request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
             }
         }
@@ -53,8 +53,33 @@ public class EditAdServlet extends HttpServlet {
             request.setAttribute("missingFields", true);
             request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
         }else {
+            String[] checkedCats = request.getParameterValues("checked");
+            System.out.println("This is our array checkedCats " + checkedCats);
+
+            if(checkedCats == null || checkedCats.length == 0) {
+                request.setAttribute("confirmCheckBoxes", true);
+                request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
+            }
+
+
+            List<Long> categoryList = new ArrayList<>();
+
+            for (String checkedCat : checkedCats) {
+                Long oneCheckedCat = Long.parseLong(checkedCat);
+                categoryList.add(oneCheckedCat);
+
+            }
+            System.out.println("this is the CategoryList: " + categoryList);
+
+
+
+
+// First clear categories already associated with that ad. Insert catergoryList into table. delete method in adscatdao
+            //method call for delete method and then the insert method
+
+            DaoFactory.getAdCategoriesDao().delete(currentId);
+            DaoFactory.getAdCategoriesDao().insert(currentId, categoryList);
             DaoFactory.getAdsDao().update(DaoFactory.getAdsDao().upperCasedTitle(editTitle), editDescription, currentId);
-//        request.getSession().invalidate();
             response.sendRedirect("/profile");
         }
     }
