@@ -58,11 +58,11 @@
                         <div class="collapse " id="collapseExample">
                             <ul class="list-inline">
                                 <c:forEach var="category" items="${categories}">
-                                    <li class="list-inline-item btn btn-primary mr-2 mb-2 "><span><input class=""
+                                    <li class="list-inline-item btn btn-primary mr-2 mb-2 "><span><label><input class=""
                                                                                                          type="checkbox"
                                                                                                          name="checked"
                                                                                                          value=${category.cat_id}>
-                            <h6 class="d-inline">${category.cat_name}</h6></span></li>
+                            <h6 class="d-inline">${category.cat_name}</h6></label></span></li>
                                 </c:forEach>
                             </ul>
                         </div>

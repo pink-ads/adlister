@@ -41,8 +41,7 @@ public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         String originalTitle = (String) request.getSession().getAttribute("selectedAd");
-        System.out.println(originalTitle);
-//        Long id = user.getId();
+//        System.out.println(originalTitle);
         String editTitle = request.getParameter("editTitle");
         String editDescription = request.getParameter("editDescription");
         Ad currentAd = DaoFactory.getAdsDao().findByTitle(originalTitle);
@@ -54,7 +53,7 @@ public class EditAdServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
         }else {
             String[] checkedCats = request.getParameterValues("checked");
-            System.out.println("This is our array checkedCats " + checkedCats);
+//            System.out.println("This is our array checkedCats " + checkedCats);
 
             List<Long> categoryList = new ArrayList<>();
 
@@ -63,7 +62,7 @@ public class EditAdServlet extends HttpServlet {
                 categoryList.add(oneCheckedCat);
 
             }
-            System.out.println("this is the CategoryList: " + categoryList);
+//            System.out.println("this is the CategoryList: " + categoryList);
 
 
 
