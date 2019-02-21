@@ -126,14 +126,15 @@ public class MySQLAdsDao implements Ads {
     }
 
     public String upperCasedTitle(String title){
-        System.out.println(title);
+//        System.out.println(title);
         StringBuilder result = new StringBuilder(title.length());
         String words[] = title.split("\\ ");
         for (int i = 0; i < words.length; i++) {
             result.append(Character.toUpperCase(words[i].charAt(0))).append(words[i].substring(1)).append(" ");
-        }System.out.println(result);
+        }
+// System.out.println(result);
         String newResult = result.toString();
-        System.out.println(newResult);
+//        System.out.println(newResult);
         return newResult;
     }
 

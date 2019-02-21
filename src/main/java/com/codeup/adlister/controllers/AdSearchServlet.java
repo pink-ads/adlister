@@ -31,8 +31,6 @@ public class AdSearchServlet extends HttpServlet {
       //get all the ads in db and makes a new list with the search term
         List<Ad> adsList = getAdsDao().all();
         List<Ad> newList = new ArrayList<>();
-
-
         String search = request.getParameter("search");
 
 //sets attribute for navbar to show or disable buttons
@@ -44,6 +42,7 @@ public class AdSearchServlet extends HttpServlet {
             request.setAttribute("notLoggedIn", true);
         }
 
+        if (request.getParameter("search") == null || request.getParameter("search") == "") {
 //start of searching functions
         if (request.getParameter("search") == null) {
             response.sendRedirect("/ads");
@@ -60,6 +59,7 @@ public class AdSearchServlet extends HttpServlet {
                 }
               }
                     request.setAttribute("ads", newList);
+                }
             request.getRequestDispatcher("WEB-INF/ads/searchResult.jsp").forward(request, response);
         }
     }
