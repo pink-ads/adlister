@@ -10,7 +10,7 @@
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
     <div class="container">
         <h3>Welcome, ${sessionScope.user.username}!</h3>
-        <div class="alert alert-secondary" role="alert">
+        <div class="alert alert-info mb-5" role="alert">
             To make changes to an existing ad, click on the ad title.
         </div>
         <form method="POST" action="/profile">
@@ -18,10 +18,10 @@
                 <div class="col">
                     <input class="mr-2 mb-2" type="checkbox" name="checked" value=${ad.id}><span>
                     <h4 class="d-inline"><a href="/edit-ad?selectedValue=${ad.title}">${ad.title}</a></h4></span>
-                    <p class="ml-4">${ad.description}</p>
+                    <p class="ml-4 mb-3">${ad.description}</p>
                 </div>
             </c:forEach>
-            <input type="submit" class="btn btn-danger btn-block col-2 mx-auto"  style="width: 200px;" value="Confirm Deletion">
+            <input type="submit" class="btn btn-danger btn-block col-2 mx-auto mt-5"  style="width: 200px;" value="Confirm Deletion">
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

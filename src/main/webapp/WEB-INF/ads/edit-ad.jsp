@@ -15,9 +15,10 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
+    <div class="bk-blue container-fluid mb-5 mt-3">
+        <h3 class=" text-center">Edit <span class="badge badge-info">Ad</span></h3>
+    </div>
     <div class="container">
-        <h3 class="text-center">Edit <span class="badge badge-info">Ad</span></h3>
-        <div class="col-12">
             <c:choose>
                 <c:when test="${missingFields}">
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -29,6 +30,7 @@
                     </div>
                 </c:when>
             </c:choose>
+        <div id="main">
             <form action="/edit-ad" method="post">
                 <div class="row justify-content-around">
                     <div class="col-5">
@@ -51,7 +53,7 @@
                             </a>
                         </p>
                         <div class="">
-                            <input type="submit" class="btn btn-block btn-secondary">
+                            <input type="submit" class="btn btn-block btn-secondary mt-5">
                         </div>
                     </div>
                     <div class="col-4">
@@ -69,6 +71,7 @@
                     </div>
                 </div>
             </form>
+            </div>
         </div>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

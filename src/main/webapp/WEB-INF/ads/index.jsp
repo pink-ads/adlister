@@ -10,12 +10,12 @@
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
 
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="img-container-adlist">
-            <h4 class="display-4 d-inline mr-4 blue">Mentor Lister</h4>
-            <h6 class="lead d-inline">Classified ads for Software Developers seeking Mentorship</h6>
+    <section id="home" class="banner_part_five ">
+        <div id="particles-js">
+            <h4 class="display-4 pl-5 pt-4  blue">Mentor Lister</h4>
+            <h6 class="lead text-light pb-3 pl-5 pt-4">Classified ads for Software Developers seeking Mentorship</h6>
         </div>
-    </div>
+    </section>
     <div class="row justify-content-center">
         <%--<div class="col-12 text-center">--%>
             <div class="card carousel-slide d-inline col-1" data-ride="carousel" style="width: 18rem;">
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="card carousel-slide d-inline col-1" data-ride="carousel" style="width: 18rem;">
+            <div class="card carousel-slide d-inline col-1 mr-5" data-ride="carousel" style="width: 18rem;">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="card-img-top img-icon-card logo logo-minus" src="/imgs/js-logo.png">
@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="card carousel-slide d-inline col-1" data-ride="carousel" style="width: 18rem;">
+            <div class="card carousel-slide d-inline col-1 ml-5" data-ride="carousel" style="width: 18rem;">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="card-img-top img-icon-card logo logo-minus" src="/imgs/git-hub-logo.png">
@@ -83,9 +83,8 @@
                     </div>
                 </div>
             </div>
-
     </div>
-
+<hr clss="pt-3 pb-3">
     <div class="row">
         <c:forEach var="ad" items="${ads}">
             <div class="col-2">
@@ -93,8 +92,8 @@
                     <img class="card-img-top img-icon-card opacity" src="/bootflat/img/check_flat/blank-image-icon.png"
                          href="/ad-details?selectedValue=${ad.getTitle()}" alt="...">
                     <div class="card-body">
-                        <h5 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
-                        </h5>
+                        <h6 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
+                        </h6>
                             <%--<p>${ad.getDescription()}</p>--%>
                     </div>
                 </div>

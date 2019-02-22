@@ -19,13 +19,13 @@
     </c:choose>
 
     <div class="container">
-        <h1>Here are your search results ${sessionScope.user.username}!</h1>
+        <h3 class="blue pb-5 text-center">Search Results ${sessionScope.user.username}!</h3>
 
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h2><a href="/ad?selectedValue=${ad.title}">${ad.title}</a></h2>
-                <p>${ad.description}</p>
+            <div class="col">
+                <h3><a href="/ad?selectedValue=${ad.title}">${ad.title}</a></h3>
             </div>
+                <h4>${ad.description}</h4>
         </c:forEach>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

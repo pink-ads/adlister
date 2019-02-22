@@ -70,7 +70,12 @@ public class RegisterServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
             return;
 
-        }else if(passwordLength) {
+        }
+        if(DaoFactory.getUsersDao().findByUsername(myUsername) != null) {
+            request.setAttribute("existingUser", true);
+            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+        }
+        else if(passwordLength) {
             request.setAttribute("passwordLength", true);
             request.setAttribute("oldUsername", myUsername);
             request.setAttribute("oldEmail", myEmail);
@@ -84,10 +89,6 @@ public class RegisterServlet extends HttpServlet {
             } catch (ServletException e) {
                 e.printStackTrace();
             }
-//            request.setAttribute("oldUsername", myUsername);
-//            request.setAttribute("oldEmail", myEmail);
-//            request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
-//            return;
 
         } else if (validateEmail) {
             request.setAttribute("validateEmail", true);

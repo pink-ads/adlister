@@ -10,20 +10,22 @@ body {
 }
 .card-body {
     margin-top: -1.5rem;
+    max-width:200px;
+    padding-left: 0;
 }
 .list-group-item {
     border: 0 none;
 }
-.img-container-index {
-    background-image: url("/imgs/header.png");
-    background-size: cover;
-    height:70%;
-}
-.img-container-adlist {
-    background-image: url("/imgs/header.png");
-    background-size: cover;
-    height:70%;
-}
+/*.img-container-index {*/
+    /*background-image: url("/imgs/header.png");*/
+    /*background-size: cover;*/
+    /*height:70%;*/
+/*}*/
+/*.img-container-adlist {*/
+    /*background-image: url("/imgs/header.png");*/
+    /*background-size: cover;*/
+    /*height:70%;*/
+/*}*/
 .dropdown-menu {
     background-color: white !important;
 }
@@ -40,6 +42,9 @@ img.opacity:hover {
     background-color: #7BBFDB !important;
     padding:10px;
 }
+.bk-border {
+    border: #7BBFDB solid 2px;
+}
 .logo {
     width: 5em!important;
     /*display: inline;*/
@@ -53,3 +58,53 @@ img.opacity:hover {
 .icon-size {
     width: 2em;
 }
+#main:before {
+    background: rgba(224, 224, 224, 0.75);
+    content: '';
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: 1px;
+    z-index: -1;
+}
+
+.banner_part_five {
+    background-attachment: fixed;
+    background-position: center !important;
+    background-size: cover !important;
+    height: 700px;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
+    clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
+}
+#particles-js {
+    height: 100%;
+    position: relative;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(10, 45, 124, .8))), url(/imgs/header.png);
+    /*background-image: linear-gradient(rgba(10, 45, 124, .8)rgba(10, 45, 124, .8)), url(../images/new-images/img1.jpeg);*/
+}
+.move-center {
+    padding-right:100px;
+}
+.card-body {
+    width: 150%;
+}
+#particles-js {
+    /*position: absolute !important;*/
+    top: 250px;
+    margin-top: -250px;
+    /*z-index:-1;*/
+    /*width: 100%;*/
+}
+.navbar {
+    z-index:1;
+}
+
+
+
