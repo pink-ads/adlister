@@ -8,7 +8,7 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
-    <div class="bk-blue container-fluid mb-5 mt-3">
+    <div class="tinted-image container-fluid mb-5 mt-3">
         <h3 class=" text-center">Create a new <span class="badge badge-info">Ad</span></h3>
     </div>
     <div class="container">
@@ -17,6 +17,14 @@
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <strong>Complete all empty fields!</strong> Ads cannot be submitted with a missing title or
                         description.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:when>
+                <c:when test="${confirmCheckBoxes}">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>Please select a category!</strong> Ads cannot be submitted without a selection of at least one category.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

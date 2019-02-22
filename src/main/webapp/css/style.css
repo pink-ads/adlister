@@ -16,16 +16,6 @@ body {
 .list-group-item {
     border: 0 none;
 }
-/*.img-container-index {*/
-    /*background-image: url("/imgs/header.png");*/
-    /*background-size: cover;*/
-    /*height:70%;*/
-/*}*/
-/*.img-container-adlist {*/
-    /*background-image: url("/imgs/header.png");*/
-    /*background-size: cover;*/
-    /*height:70%;*/
-/*}*/
 .dropdown-menu {
     background-color: white !important;
 }
@@ -38,10 +28,20 @@ img.opacity:hover {
 .blue{
     color: #7BBFDB !important;
 }
-.bk-blue{
-    background-color: #7BBFDB !important;
+
+.tinted-image {
+    background-image:
+            linear-gradient(
+                    rgba(153, 208,237,.6),
+                    rgba(153, 208,237,.9)
+            ),
+                /* your image */
+            url(/imgs/pattern.jpg);
+
     padding:10px;
 }
+
+
 .bk-border {
     border: #7BBFDB solid 2px;
 }

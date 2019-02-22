@@ -17,8 +17,6 @@
             </div>
         </section>
 
-
-        <%--<h3 class="text-center bk-blue">Software Development built with the Developer in Mind</h3>--%>
         <div class="row">
             <div class="col-1">
                 <ul class="list-group list-group-flush">
@@ -28,20 +26,19 @@
                     <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/angular-logo.png"></li>
                     <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/bootstrap-logo.png">
                     </li>
-                    <%--<li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/c-plus-logo.png"></li>--%>
-                    <%--<li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/java-logo.png"></li>--%>
-                    <%--<li class="list-group-item flex-fill mx-auto"><img class="logo" src="/imgs/jquery-logo.png"></li>--%>
-                    <%--<li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/node-js-logo.png"></li>--%>
                     <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/react-logo.png"></li>
                 </ul>
             </div>
             <div class="col-11 ml-auto">
                 <div class="container">
                     <div class="jumbotron jumbotron-fluid ">
-                        <h1 class="display-4 text-center move-center">Get started!</h1>
-                        <h4 class="lead text-center move-center">Connect with an experienced Mentor to reach your
-                            goals!</h4>
-                        <div class="row move-center  pt-3 justify-content-center">
+                        <h1 class="display-4 move-center text-center">Get started!</h1>
+                        <nav class="navbar navbar-light bg-light justify-content-center">
+  <span class="navbar-text text-center">
+    <div class="row  move-center pt-3">
+                        <%--<h4 class="lead text-center move-center">Connect with an experienced Mentor to reach your--%>
+                            <%--goals!</h4>--%>
+
                             <form action="/register" method="GET">
                                 <input type="submit" value="Register Now" class="btn btn-primary btn-block">
                             </form>
@@ -49,8 +46,10 @@
                             <form action="/ads" method="GET">
                                 <input type="submit" value="Go to Ads" class="btn btn-info btn-block">
                             </form>
-                            </form>
                         </div>
+  </span>
+                        </nav>
+
                         <hr class=" px-3 pt-4">
                         <ul class="list-unstyled ml-5">
                             <div class="row justify-content-between">
@@ -106,12 +105,11 @@
                                 </div>
                             </div>
                         </ul>
-
-
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

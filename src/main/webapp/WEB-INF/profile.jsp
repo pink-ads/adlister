@@ -8,10 +8,12 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
+    <div class="tinted-image container-fluid mb-5 mt-3">
+        <h3 class=" text-center">Your <span class="badge badge-info">Profile</span></h3>
+    </div>
     <div class="container">
-        <h3>Welcome, ${sessionScope.user.username}!</h3>
-        <div class="alert alert-info mb-5" role="alert">
-            To make changes to an existing ad, click on the ad title.
+        <div class="alert alert-secondary mb-5 text-center" role="alert">
+            Welcome ${sessionScope.user.username.toUpperCase().charAt(0)}${sessionScope.user.username.substring(1)}! To make changes to an existing ad, click on the ad title.
         </div>
         <form method="POST" action="/profile">
             <c:forEach var="ad" items="${ads}">
