@@ -11,40 +11,31 @@
     <div class="container-fluid">
         <section id="home" class="banner_part_five ">
             <div id="particles-js">
-                <h4 class="display-4 pl-5 pt-4  blue">Mentor Lister</h4>
-                <h6 class="lead text-light pb-3 pl-5 pt-4">Classified ads for Software Developers seeking
-                    Mentorship</h6>
+                <div class="text-center main-header pt-5 blue">
+                    <h4 class="display-4 pr-4 d-inline pt-4 ">Mentor</h4>
+                    <img src="imgs/professor.png" height="100px" class="professor-img text-center">
+                    <h4 class="display-4 pl-4 pt-4 d-inline">Lister</h4>
+                </div>
             </div>
         </section>
-
+<div class="row">
+    <div class="col"></div>
+    <div class="col"></div>
+</div>
         <div class="row">
-            <div class="col-1">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/css-logo.png"></li>
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/html-logo.png"></li>
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/js-logo.png"></li>
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/angular-logo.png"></li>
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/bootstrap-logo.png">
-                    </li>
-                    <li class="list-group-item flex-fill mx-auto "><img class="logo" src="/imgs/react-logo.png"></li>
-                </ul>
-            </div>
-            <div class="col-11 ml-auto">
+            <div class="col-12 ml-auto">
                 <div class="container">
                     <div class="jumbotron jumbotron-fluid ">
-                        <h1 class="display-4 move-center text-center">Get started!</h1>
+                        <h1 class="display-4 text-center">Get started!</h1>
                         <nav class="navbar navbar-light bg-light justify-content-center">
   <span class="navbar-text text-center">
-    <div class="row  move-center pt-3">
-                        <%--<h4 class="lead text-center move-center">Connect with an experienced Mentor to reach your--%>
-                            <%--goals!</h4>--%>
-
+    <div class="row pt-3">
                             <form action="/register" method="GET">
-                                <input type="submit" value="Register Now" class="btn btn-primary btn-block">
+                                <input type="submit" value="Register Now" class="btn register-color btn-block">
                             </form>
                             <div class="mx-3"></div>
                             <form action="/ads" method="GET">
-                                <input type="submit" value="Go to Ads" class="btn btn-info btn-block">
+                                <input type="submit" value="Go to Ads" class="btn ads-color btn-block">
                             </form>
                         </div>
   </span>
@@ -57,7 +48,7 @@
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-users-cog fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Register</h4>
+                                            <h4 class="card-title mx-3 display-5">Register</h4>
                                             <h5 class="card-text lead pb-3">Sign up</h5>
 
                                         </div>
@@ -65,7 +56,7 @@
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fab fa-adversal fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Create</h4>
+                                            <h4 class="card-title mx-3 display-5">Create</h4>
                                             <h5 class="card-text lead pb-3">Create an ad</h5>
                                         </div>
                                     </li>
@@ -74,14 +65,14 @@
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-mouse-pointer fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Categorize</h4>
+                                            <h4 class="card-title  mx-3 display-5">Categorize</h4>
                                             <h5 class="card-text lead pb-3">Select the categories</h5>
                                         </div>
                                     </li>
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-comment-medical fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Describe</h4>
+                                            <h4 class="card-title mx-3 display-5">Describe</h4>
                                             <h5 class="card-text lead pb-3">Add an eye-catching title and
                                                 description </h5>
                                         </div>
@@ -91,14 +82,14 @@
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-paste fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Post</h4>
+                                            <h4 class="card-title mx-3 display-5">Post</h4>
                                             <h5 class="card-text lead pb-3">Post your ad</h5>
                                         </div>
                                     </li>
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-pencil-alt fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mt-0 mb-5 display-5">Edit</h4>
+                                            <h4 class="card-title mx-3 display-5">Edit</h4>
                                             <h5 class="card-text lead pb-3">Edit or Delete your ad</h5>
                                         </div>
                                     </li>
