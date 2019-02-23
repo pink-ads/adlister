@@ -35,6 +35,7 @@ public class ViewProfileServlet extends HttpServlet {
         }
         request.setAttribute("ads", myAds);
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+
     }
 
 
@@ -45,6 +46,10 @@ public class ViewProfileServlet extends HttpServlet {
             DaoFactory.getAdsDao().delete(oneCheckedAd);
         }
         response.sendRedirect("/profile");
+
+
+
+
     }
 }
 

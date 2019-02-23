@@ -50,7 +50,9 @@ public class CreateAdServlet extends HttpServlet {
             );
             Long ad_id = DaoFactory.getAdsDao().insert(ad);
             String[] checkedCats = request.getParameterValues("checked");
-            System.out.println("This is our array checkedCats " + checkedCats);
+//            System.out.println("This is our array checkedCats " + checkedCats);
+
+
 
             if (checkedCats == null || checkedCats.length == 0) {
                 request.setAttribute("confirmCheckBoxes", true);

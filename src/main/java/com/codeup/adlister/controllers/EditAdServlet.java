@@ -2,6 +2,7 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -31,7 +33,35 @@ public class EditAdServlet extends HttpServlet {
                 //get the username using the userId from Ad object
                 request.setAttribute("username", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getUsername());
                 request.setAttribute("email", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getEmail());
-                request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
+//                request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
+                List<Category> categories= DaoFactory.getCategoriesDao().all();
+                List<Category> adCategories = DaoFactory.getCategoriesDao().getCategories(foundAdByTitle.getId());
+                for(Category catID: adCategories){
+                    System.out.println(catID.getCat_id());
+                }
+
+                HashMap<Category, Boolean> filterCats = new HashMap<>();
+                for (Category cat:categories)
+                {
+//                    adCategories.contains(cat);
+                    for(Category adcat: adCategories){
+                    filterCats.put(cat, cat.getCat_id() == adcat.getCat_id());
+
+                    }
+                }
+
+                for (Category name: filterCats.keySet()){
+
+                    Long key =name.getCat_id();
+                    String value = filterCats.get(name).toString();
+                    System.out.println(key + " " + value);
+
+
+                }
+
+             request.setAttribute("categories", filterCats);
+
+                System.out.println(DaoFactory.getCategoriesDao().all());
                 request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
             }
         }
