@@ -17,7 +17,6 @@
         </div>
     </section>
     <div class="row justify-content-center">
-        <%--<div class="col-12 text-center">--%>
             <div class="card carousel-slide d-inline col-1" data-ride="carousel" style="width: 18rem;">
                 <div class="carousel-inner">
                     <div class="carousel-item active ">
@@ -94,7 +93,6 @@
                     <div class="card-body">
                         <h6 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
                         </h6>
-                            <%--<p>${ad.getDescription()}</p>--%>
                     </div>
                 </div>
             </div>

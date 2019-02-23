@@ -15,8 +15,6 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/login-navbar.jsp"/>
-
-
     <div class="container">
         <h3 class="blue">Ad Details...</h3>
         <div>
@@ -25,12 +23,10 @@
         <h4>${description}</h4>
 
         <c:forEach var="category" items="${categories}">
-            <%--<p>${category.getCat_name()}</p>--%>
             <span class="badge badge-pill badge-primary">${category.getCat_name()}</span>
         </c:forEach>
         <h5>${username}</h5>
         <h5>${email}</h5>
-
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

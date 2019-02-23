@@ -26,21 +26,12 @@ public class UpdateProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-//        String action = request.getParameter("submit");
-
-//        if (action.equals("cancel")) {
-//            response.sendRedirect("/profile");
-//        } else if (action.equals("submit")) {
-            //assigns the logged in user to a user object
             User user = (User) request.getSession().getAttribute("user");
             //finds the user in the database
             DaoFactory.getUsersDao().findByUserId(user.getId());
-
             String newUsername = request.getParameter("new-username");
             String newEmail = request.getParameter("new-email");
             Long userId = user.getId();
-
             DaoFactory.getUsersDao().updateUser(newUsername, newEmail, userId);
             response.sendRedirect("/profile");
         }

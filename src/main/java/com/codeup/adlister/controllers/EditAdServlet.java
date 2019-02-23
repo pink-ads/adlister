@@ -21,7 +21,6 @@ public class EditAdServlet extends HttpServlet {
         String clickedParam = request.getParameter("selectedValue");
         request.getSession().setAttribute("selectedAd", clickedParam);
         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
-
         for (int i = 0; i < allAds.size(); i++) {
             if (foundAdByTitle == null) {
                 response.sendRedirect("/ads");
@@ -42,11 +41,8 @@ public class EditAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("myTitle", request.getParameter("title"));
         request.setAttribute("myDescription", request.getParameter("description"));
-//        System.out.println("get parameter title is " + request.getParameter("title"));
         String myTitle = (String) request.getAttribute("myTitle");
-//        System.out.println(myTitle);
         String myDescription = (String) request.getAttribute("myDescription");
-//        System.out.println(myDescription);
         if ((myTitle == null || myDescription == null) || (myTitle == "" || myDescription == "")) {
             //warning message
             request.setAttribute("missingTitle", true);
@@ -60,9 +56,7 @@ public class EditAdServlet extends HttpServlet {
                     myDescription
             );
             Long ad_id = DaoFactory.getAdsDao().insert(ad);
-//            System.out.println("This is our adId: " + ad_id);
             String[] checkedCats = request.getParameterValues("checked");
-//            System.out.println("This is our array checkedCats " + checkedCats);
             if (checkedCats == null || checkedCats.length == 0) {
                 request.setAttribute("confirmCheckBoxes", true);
                 request.setAttribute("oldTitle", myTitle);
@@ -74,9 +68,7 @@ public class EditAdServlet extends HttpServlet {
                 Long oneCheckedCat = Long.parseLong(checkedCat);
                 categoryList.add(oneCheckedCat);
             }
-//            System.out.println("this is the CategoryList: " + categoryList);
             DaoFactory.getAdCategoriesDao().insert(ad_id, categoryList);
-//            System.out.println("array as list: " + Arrays.asList(checkedCats));
             response.sendRedirect("/profile");
         }
     }

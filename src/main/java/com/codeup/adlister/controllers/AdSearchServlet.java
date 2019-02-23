@@ -32,12 +32,11 @@ public class AdSearchServlet extends HttpServlet {
 
         User currentUser = (User) (request.getSession().getAttribute("user"));
         System.out.println(currentUser);
-        if(currentUser != null) {
+        if (currentUser != null) {
             request.setAttribute("LoggedIn", true);
-        }else{
+        } else {
             request.setAttribute("notLoggedIn", true);
         }
-
         if (request.getParameter("search") == null || request.getParameter("search") == "") {
             response.sendRedirect("/ads");
         } else {

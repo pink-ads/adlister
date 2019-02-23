@@ -112,7 +112,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-    public String upperCasedTitle(String title){
+    public String upperCasedTitle(String title) {
 //        System.out.println(title);
         StringBuilder result = new StringBuilder(title.length());
         String words[] = title.split("\\ ");

@@ -2,62 +2,70 @@ body {
     box-sizing: border-box;
     margin: 2% 1%;
 }
+
 .card {
     border: none;
     text-align: center;
     min-width: 150px !important;
     max-width: 150px !important;
 }
+
 .card-body {
     margin-top: -1.5rem;
-    max-width:200px;
+    max-width: 200px;
     padding-left: 0;
 }
+
 .list-group-item {
     border: 0 none;
 }
+
 .dropdown-menu {
     background-color: white !important;
 }
+
 img.opacity {
     opacity: 0.2 !important;
 }
+
 img.opacity:hover {
     opacity: 0.9 !important;
 }
-.blue{
+
+.blue {
     color: #7BBFDB !important;
 }
 
 .tinted-image {
-    background-image:
-            linear-gradient(
-                    rgba(153, 208,237,.6),
-                    rgba(153, 208,237,.9)
-            ),
-                /* your image */
-            url(/imgs/pattern.jpg);
+    background-image: linear-gradient(
+            rgba(153, 208, 237, .6),
+            rgba(153, 208, 237, .9)
+    ),
+        url(/imgs/pattern.jpg);
 
-    padding:10px;
+    padding: 10px;
 }
-
 
 .bk-border {
     border: #7BBFDB solid 2px;
 }
+
 .logo {
-    width: 5em!important;
-    /*display: inline;*/
+    width: 5em !important;
 }
-.logo-minus{
-    height:5em!important;
+
+.logo-minus {
+    height: 5em !important;
 }
+
 .flex-fill {
     text-align: center;
 }
+
 .icon-size {
     width: 2em;
 }
+
 #main:before {
     background: rgba(224, 224, 224, 0.75);
     content: '';
@@ -79,6 +87,7 @@ img.opacity:hover {
     -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
     clip-path: polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0% 75%, 0 0);
 }
+
 #particles-js {
     height: 100%;
     position: relative;
@@ -87,23 +96,23 @@ img.opacity:hover {
     background-position: center;
     background-size: cover;
     background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(10, 45, 124, .8))), url(/imgs/header.png);
-    /*background-image: linear-gradient(rgba(10, 45, 124, .8)rgba(10, 45, 124, .8)), url(../images/new-images/img1.jpeg);*/
 }
+
 .move-center {
-    padding-right:100px;
+    padding-right: 100px;
 }
+
 .card-body {
     width: 150%;
 }
+
 #particles-js {
-    /*position: absolute !important;*/
     top: 250px;
     margin-top: -250px;
-    /*z-index:-1;*/
-    /*width: 100%;*/
 }
+
 .navbar {
-    z-index:1;
+    z-index: 1;
 }
 
 

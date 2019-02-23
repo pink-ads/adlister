@@ -82,8 +82,8 @@
                                         <div class="card-body">
                                             <i class="fas fa-comment-medical fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mt-0 mb-5 display-5">Describe</h4>
-                                            <p class="card-text lead pb-3">Add an eye-catching title and
-                                                description </p>
+                                            <h5 class="card-text lead pb-3">Add an eye-catching title and
+                                                description </h5>
                                         </div>
                                     </li>
                                 </div>
@@ -92,14 +92,14 @@
                                         <div class="card-body">
                                             <i class="fas fa-paste fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mt-0 mb-5 display-5">Post</h4>
-                                            <p class="card-text lead pb-3">Post your ad</p>
+                                            <h5 class="card-text lead pb-3">Post your ad</h5>
                                         </div>
                                     </li>
                                     <li class="card">
                                         <div class="card-body">
                                             <i class="fas fa-pencil-alt fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mt-0 mb-5 display-5">Edit</h4>
-                                            <p class="card-text lead pb-3">Edit or Delete your ad</p>
+                                            <h5 class="card-text lead pb-3">Edit or Delete your ad</h5>
                                         </div>
                                     </li>
                                 </div>
