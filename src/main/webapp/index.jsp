@@ -12,9 +12,9 @@
         <section id="home" class="banner_part_five ">
             <div id="particles-js">
                 <div class="text-center main-header pt-5 blue">
-                    <h4 class="display-4 pr-4 d-inline pt-4 ">Mentor</h4>
+                    <h4 class="display-4 pr-4 d-inline pt-4 main-font">Mentor</h4>
                     <img src="imgs/professor.png" height="100px" class="professor-img text-center">
-                    <h4 class="display-4 pl-4 pt-4 d-inline">Lister</h4>
+                    <h4 class="display-4 pl-4 pt-4 d-inline main-font">Lister</h4>
                 </div>
             </div>
         </section>
@@ -45,32 +45,16 @@
                         <ul class="list-unstyled ml-5">
                             <div class="row justify-content-between">
                                 <div class="col-4 d-inline">
-                                    <li class="card">
-                                        <div class="card-body">
+                                    <li class="card-fluid">
+                                        <div class="card-body text-center to-do">
                                             <i class="fas fa-users-cog fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mx-3 display-5">Register</h4>
                                             <h5 class="card-text lead pb-3">Sign up</h5>
 
                                         </div>
                                     </li>
-                                    <li class="card">
-                                        <div class="card-body">
-                                            <i class="fab fa-adversal fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mx-3 display-5">Create</h4>
-                                            <h5 class="card-text lead pb-3">Create an ad</h5>
-                                        </div>
-                                    </li>
-                                </div>
-                                <div class="col-4 d-inline">
-                                    <li class="card">
-                                        <div class="card-body">
-                                            <i class="fas fa-mouse-pointer fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title  mx-3 display-5">Categorize</h4>
-                                            <h5 class="card-text lead pb-3">Select the categories</h5>
-                                        </div>
-                                    </li>
-                                    <li class="card">
-                                        <div class="card-body">
+                                    <li class="card-fluid">
+                                        <div class="card-body text-center to-do">
                                             <i class="fas fa-comment-medical fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mx-3 display-5">Describe</h4>
                                             <h5 class="card-text lead pb-3">Add an eye-catching title and
@@ -79,15 +63,33 @@
                                     </li>
                                 </div>
                                 <div class="col-4 d-inline">
-                                    <li class="card">
-                                        <div class="card-body">
-                                            <i class="fas fa-paste fa-3x icon-size align-self-center"></i>
-                                            <h4 class="card-title mx-3 display-5">Post</h4>
-                                            <h5 class="card-text lead pb-3">Post your ad</h5>
+                                    <li class="card-fluid">
+                                        <div class="card-body text-center to-do">
+                                            <i class="fab fa-adversal fa-3x icon-size align-self-center"></i>
+                                            <h4 class="card-title mx-3 display-5">Create</h4>
+                                            <h5 class="card-text lead pb-3">Create an ad</h5>
                                         </div>
                                     </li>
-                                    <li class="card">
-                                        <div class="card-body">
+
+                                    <li class="card-fluid">
+                                    <div class="card-body text-center to-do">
+                                    <i class="fas fa-paste fa-3x icon-size align-self-center"></i>
+                                    <h4 class="card-title mx-3 display-5">Post</h4>
+                                    <h5 class="card-text lead pb-3">Post your ad</h5>
+                                    </div>
+                                    </li>
+                                </div>
+                                <div class="col-4 d-inline ">
+                                    <li class="card-fluid">
+                                        <div class="card-body text-center to-do">
+                                            <i class="fas fa-mouse-pointer fa-3x icon-size align-self-center"></i>
+                                            <h4 class="card-title  mx-3 display-5">Categorize</h4>
+                                            <h5 class="card-text lead pb-3">Select the categories</h5>
+                                        </div>
+                                    </li>
+
+                                    <li class="card-fluid">
+                                        <div class="card-body text-center to-do">
                                             <i class="fas fa-pencil-alt fa-3x icon-size align-self-center"></i>
                                             <h4 class="card-title mx-3 display-5">Edit</h4>
                                             <h5 class="card-text lead pb-3">Edit or Delete your ad</h5>

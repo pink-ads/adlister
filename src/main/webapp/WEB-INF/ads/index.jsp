@@ -13,9 +13,9 @@
     <section id="home" class="banner_part_five ">
         <div id="particles-js">
             <div class="text-center main-header pt-5 blue">
-                <h4 class="display-4 pr-4 d-inline pt-4 ">Mentor</h4>
+                <h4 class="display-4 pr-4 d-inline pt-4 main-font">Mentor</h4>
                 <img src="imgs/professor.png" height="100px" class="professor-img text-center">
-                <h4 class="display-4 pl-4 pt-4 d-inline">Lister</h4>
+                <h4 class="display-4 pl-4 pt-4 d-inline main-font">Lister</h4>
             </div>
         </div>
     </section>
@@ -105,20 +105,24 @@
     </div>
 
     <hr clss="pt-3 pb-3">
-    <div class="row">
+    <%--<div class="row justify-content-center">--%>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-2">
-                <div class="card d-inline" style="width: 18rem;">
-                    <img class="card-img-top img-icon-card opacity" src="/bootflat/img/check_flat/blank-image-icon.png"
-                         href="/ad-details?selectedValue=${ad.getTitle()}" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
-                        </h6>
+            <div class="card pl-3 mb-3 d-block" >
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img class="card-img-top img-icon-card opacity" src="/bootflat/img/check_flat/blank-image-icon.png"
+                             href="/ad-details?selectedValue=${ad.getTitle()}" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body" style="width: 50rem;">
+                            <h5 class="card-text"><a href="/ad-details?selectedValue=${ad.getTitle()}">${ad.getTitle()}</a>
+                            </h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </c:forEach>
-    </div>
+    <%--</div>--%>
 
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>

@@ -5,7 +5,7 @@ body {
 .form-inline .form-control {
     width: 15em;
 }
-h4 {
+.main-font {
     font-family: 'Rock Salt', cursive;
 }
 .navbar-brand {
@@ -19,7 +19,7 @@ h4 {
 }
 .card {
     border: none;
-    text-align: center;
+    /*text-align: center;*/
     min-width: 150px !important;
     max-width: 150px !important;
 }
@@ -30,9 +30,11 @@ h4 {
 
 .card-body {
     margin-top: -1.5rem;
-    max-width: 200px;
-    padding-left: 0;
 }
+/*.to-do {*/
+    /*max-width: 200px;*/
+    /*padding-left: 0;*/
+/*}*/
 
 .list-group-item {
     border: 0 none;
@@ -51,23 +53,20 @@ img.opacity:hover {
 }
 
 .blue {
-    /*color: #7BBFDB !important;*/
     background-image: linear-gradient(90deg,#00f0d1,#a966ee),linear-gradient(90deg,#00f0d1,#a966ee);
+    padding: 10px;
 }
 
 /*.tinted-image {*/
-    /*background-image: linear-gradient(*/
-            /*rgba(153, 208, 237, .6),*/
-            /*rgba(153, 208, 237, .9)*/
-    /*),*/
-        /*url(/imgs/pattern.jpg);*/
+/*background-image: linear-gradient(*/
+/*rgba(153, 208, 237, .6),*/
+/*rgba(153, 208, 237, .9)*/
+/*),*/
+/*url(/imgs/pattern.jpg);*/
 
-    /*padding: 10px;*/
+/*padding: 10px;*/
 /*}*/
 
-.bk-border {
-    border: #7BBFDB solid 2px;
-}
 
 .logo {
     width: 5em !important;
@@ -140,9 +139,9 @@ img.opacity:hover {
     padding-right: 100px;
 }
 
-.card-body {
-    width: 150%;
-}
+/*.card-body {*/
+    /*width: 150%;*/
+/*}*/
 
 /*#particles-js {*/
     /*top: 250px;*/
