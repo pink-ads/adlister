@@ -33,83 +33,54 @@ public class EditAdServlet extends HttpServlet {
                 //get the username using the userId from Ad object
                 request.setAttribute("username", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getUsername());
                 request.setAttribute("email", DaoFactory.getUsersDao().findByUserId(foundByTitleId).getEmail());
-//                request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
-                List<Category> categories= DaoFactory.getCategoriesDao().all();
-                List<Category> adCategories = DaoFactory.getCategoriesDao().getCategories(foundAdByTitle.getId());
-                for(Category catID: adCategories){
-                    System.out.println(catID.getCat_id());
-                }
-
-                HashMap<Category, Boolean> filterCats = new HashMap<>();
-                for (Category cat:categories)
-                {
-//                    adCategories.contains(cat);
-                    for(Category adcat: adCategories){
-                    filterCats.put(cat, cat.getCat_id() == adcat.getCat_id());
-
-                    }
-                }
-
-                for (Category name: filterCats.keySet()){
-
-                    Long key =name.getCat_id();
-                    String value = filterCats.get(name).toString();
-                    System.out.println(key + " " + value);
-
-
-                }
-
-             request.setAttribute("categories", filterCats);
-
-                System.out.println(DaoFactory.getCategoriesDao().all());
+                request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
                 request.getRequestDispatcher("/WEB-INF/ads/edit-ad.jsp").forward(request, response);
             }
         }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        User user = (User) request.getSession().getAttribute("user");
         request.setAttribute("myTitle", request.getParameter("title"));
         request.setAttribute("myDescription", request.getParameter("description"));
-//        System.out.println("get parameter title is " + request.getParameter("title"));
-        String myTitle = (String) request.getAttribute("myTitle");
-//        System.out.println(myTitle);
-        String myDescription = (String) request.getAttribute("myDescription");
-//        System.out.println(myDescription);
-        if ((myTitle == null || myDescription == null) || (myTitle == "" || myDescription == "")){
+        String originalTitle = (String) request.getSession().getAttribute("selectedAd");
+        String editTitle = request.getParameter("editTitle");
+        String editDescription = request.getParameter("editDescription");
+        String[] checkedCats = request.getParameterValues("checked");
+
+        Ad currentAd = DaoFactory.getAdsDao().findByTitle(originalTitle);
+        Long currentId = currentAd.getId();
+
+        if (editTitle.equals("") || editDescription.equals("") || editTitle == null || editDescription == null) {
             //warning message
-            request.setAttribute("missingTitle", true);
-            request.setAttribute("oldTitle", myTitle);
-            request.setAttribute("oldDescription", myDescription);
+            request.setAttribute("missingFields", true);
+            request.setAttribute("oldTitle", editTitle);
+            request.setAttribute("oldDescription", editDescription);
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         } else {
-            Ad ad = new Ad(
-                    user.getId(),
-                    DaoFactory.getAdsDao().upperCasedTitle(myTitle),
-                    myDescription
-            );
-            Long ad_id = DaoFactory.getAdsDao().insert(ad);
-//            System.out.println("This is our adId: " + ad_id);
-            String[] checkedCats = request.getParameterValues("checked");
-//            System.out.println("This is our array checkedCats " + checkedCats);
-            if(checkedCats == null || checkedCats.length == 0) {
+
+            if (checkedCats == null || checkedCats.length == 0) {
                 request.setAttribute("confirmCheckBoxes", true);
-                request.setAttribute("oldTitle", myTitle);
-                request.setAttribute("oldDescription", myDescription);
+                request.setAttribute("oldTitle", editTitle);
+                request.setAttribute("oldDescription", editDescription);
                 request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
             }
+
             List<Long> categoryList = new ArrayList<>();
             for (String checkedCat : checkedCats) {
                 Long oneCheckedCat = Long.parseLong(checkedCat);
                 categoryList.add(oneCheckedCat);
             }
-//            System.out.println("this is the CategoryList: " + categoryList);
-            DaoFactory.getAdCategoriesDao().insert(ad_id,categoryList);
-//            System.out.println("array as list: " + Arrays.asList(checkedCats));
+
+            DaoFactory.getAdCategoriesDao().delete(currentId);
+            DaoFactory.getAdCategoriesDao().insert(currentId, categoryList);
+            DaoFactory.getAdsDao().update(DaoFactory.getAdsDao().upperCasedTitle(editTitle), editDescription, currentId);
             response.sendRedirect("/profile");
         }
     }
 }
+
+
+
 
 
 

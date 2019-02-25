@@ -18,10 +18,17 @@
                 </div>
             </div>
         </section>
-<div class="row">
-    <div class="col"></div>
-    <div class="col"></div>
-</div>
+        <div class="row justify-content-center">
+            <div class="col">
+                <div class="card-fluid">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">Advance Your Career by Connecting with a Mentor</h3>
+                        <h5 class="card-text text-center lead">One of our experienced mentor's will respond to your ad. First Create one and get ready to hit the ground running!</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <div class="row">
             <div class="col-12 ml-auto">
                 <div class="container">

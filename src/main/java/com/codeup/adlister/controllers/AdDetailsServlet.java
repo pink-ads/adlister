@@ -22,7 +22,6 @@ public class AdDetailsServlet extends HttpServlet {
         System.out.println("first sout" + clickedParam);
         Ad foundAdByTitle = DaoFactory.getAdsDao().findByTitle(clickedParam);
 
-
         for (int i = 0; i < allAds.size(); i++) {
             if (foundAdByTitle == null) {
                 response.sendRedirect("/ads");

@@ -38,7 +38,6 @@ public class ViewProfileServlet extends HttpServlet {
 
     }
 
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String[] checkedAds = request.getParameterValues("checked");
         for (String checkedAd : checkedAds) {
@@ -46,9 +45,6 @@ public class ViewProfileServlet extends HttpServlet {
             DaoFactory.getAdsDao().delete(oneCheckedAd);
         }
         response.sendRedirect("/profile");
-
-
-
 
     }
 }

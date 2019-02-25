@@ -22,7 +22,6 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
         } else {
             request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
-
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         }
     }
@@ -33,16 +32,13 @@ public class CreateAdServlet extends HttpServlet {
         request.setAttribute("myDescription", request.getParameter("description"));
         String myTitle = (String) request.getAttribute("myTitle");
         String myDescription = (String) request.getAttribute("myDescription");
-
         if ((myTitle == null || myDescription == null) || (myTitle == "" || myDescription == "")) {
-
             //warning message
             request.setAttribute("missingTitle", true);
             request.setAttribute("oldTitle", myTitle);
             request.setAttribute("oldDescription", myDescription);
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
         } else {
-
             Ad ad = new Ad(
                     user.getId(),
                     DaoFactory.getAdsDao().upperCasedTitle(myTitle),
@@ -50,19 +46,11 @@ public class CreateAdServlet extends HttpServlet {
             );
             Long ad_id = DaoFactory.getAdsDao().insert(ad);
             String[] checkedCats = request.getParameterValues("checked");
-//            System.out.println("This is our array checkedCats " + checkedCats);
-
-
-
             if (checkedCats == null || checkedCats.length == 0) {
                 request.setAttribute("confirmCheckBoxes", true);
-                request.setAttribute("oldTitle", myTitle);
-                request.setAttribute("oldDescription", myDescription);
                 request.getRequestDispatcher("/WEB-INF/ads/create.jsp").forward(request, response);
             }
-
             List<Long> categoryList = new ArrayList<>();
-
             for (String checkedCat : checkedCats) {
                 Long oneCheckedCat = Long.parseLong(checkedCat);
                 categoryList.add(oneCheckedCat);
