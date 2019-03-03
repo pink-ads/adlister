@@ -27,6 +27,14 @@
                     </button>
                 </div>
             </c:when>
+            <c:when test="${existingUser}">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>That username is already registered</strong> Please log in.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
         </c:choose>
         <form action="/login" method="POST">
             <div class="form-group">
@@ -37,7 +45,7 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-secondary btn-block" value="Log In">
+            <input type="submit" class="btn btn-success btn-block" value="Log In">
         </form>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>

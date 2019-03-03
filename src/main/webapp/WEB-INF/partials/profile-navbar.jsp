@@ -1,6 +1,5 @@
-
 <nav class="navbar navbar-expand-lg  bg-light">
-    <a class="navbar-brand" href="/ads">MrLister</a>
+    <a class="navbar-brand blue px-2 badge badge-pill badge-primary" href="/">ML</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,6 +19,9 @@
                     <a class="dropdown-item" href="/ads/create">Create Ad</a>
                     <a class="dropdown-item" href="/updateProfile">Update Profile</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ads">Ads</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/logout" tabindex="-1">Logout</a>

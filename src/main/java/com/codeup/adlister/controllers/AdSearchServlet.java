@@ -35,13 +35,12 @@ public class AdSearchServlet extends HttpServlet {
 
 //sets attribute for navbar to show or disable buttons
         User currentUser = (User) (request.getSession().getAttribute("user"));
-//        System.out.println(currentUser);
-        if(currentUser != null) {
+        System.out.println(currentUser);
+        if (currentUser != null) {
             request.setAttribute("LoggedIn", true);
-        }else{
+        } else {
             request.setAttribute("notLoggedIn", true);
         }
-
         if (request.getParameter("search") == null || request.getParameter("search") == "") {
 //start of searching functions
         if (request.getParameter("search") == null) {

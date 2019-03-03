@@ -15,30 +15,30 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/profile-navbar.jsp"/>
+    <div class="bk-blue container-fluid mb-5 mt-3">
+        <h3 class=" text-center">Edit <span class="badge badge-info">Ad</span></h3>
+    </div>
     <div class="container">
-        <h3 class="text-center">Edit <span class="badge badge-info">Ad</span></h3>
-        <div class="col-12">
-            <c:choose>
-                <c:when test="${missingFields}">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Complete all empty fields!</strong> Ads cannot be submitted with a missing title or
-                        description.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                </c:when>
-                <c:when test="${confirmCheckBoxes}">
-                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <strong>Please select a category!</strong> Ads cannot be edited with a missing category.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                </c:when>
-
-            </c:choose>
+        <c:choose>
+            <c:when test="${missingFields}">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Complete all empty fields!</strong> Ads cannot be submitted with a missing title or
+                    description.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+            <c:when test="${confirmCheckBoxes}">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Select a category!</strong> Ads cannot be submitted without selecting at least one category.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:when>
+        </c:choose>
+        <div id="main">
             <form action="/edit-ad" method="post">
                 <div class="row justify-content-around">
                     <div class="col-5">
@@ -61,15 +61,18 @@
                             </a>
                         </p>
                         <div class="">
-                            <input type="submit" class="btn btn-block btn-secondary">
+                            <input type="submit" class="btn btn-block btn-secondary mt-5">
                         </div>
                     </div>
                     <div class="col-4">
                         <div class="collapse " id="collapseExample">
                             <ul class="list-inline">
                                 <c:forEach var="category" items="${categories}">
-                                    <li class="list-inline-item btn btn-primary mr-2 mb-2"><span><label><input class="" type="checkbox" name="checked" value=${category.value} ${category.value ? 'checked' : ''}>
-                            <h6 class="d-inline">${category.key.cat_name}</h6></label></span></li>
+                                    <li class="list-inline-item btn btn-primary mr-2 mb-2"><span><label><input class=""
+                                                                                                               type="checkbox"
+                                                                                                               name="checked"
+                                                                                                               value=${category.cat_id}>
+                            <h6 class="d-inline">${category.cat_name}</h6></label></span></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -77,6 +80,7 @@
                 </div>
             </form>
         </div>
+    </div>
     </div>
     <jsp:include page="/WEB-INF/partials/foot.jsp"/>
 </body>
